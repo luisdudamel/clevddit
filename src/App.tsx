@@ -1,11 +1,11 @@
-import Button from "./components/Button/Button";
+import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
 import "./styles/sass/styles.scss";
 
 const App = (): JSX.Element => {
   return (
-    <div className="App">
-      <Button text="Log in" />
-    </div>
+    <>
+      <LoginRegisterPage />
+    </>
   );
 };
 

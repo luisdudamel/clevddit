@@ -1,7 +1,18 @@
 @font-face {
   font-family: "Work Sans";
   src: local("WorkSans-Regular"),
-    url(../../fonts/WorkSans-Regular.ttf) format("opentype"),
-    url(../../fonts/WorkSans-Bold.ttf) format("opentype"),
+    url(../../fonts/WorkSans-Regular.ttf) format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: local("WorkSans-Bold"),
+    url(../../fonts/WorkSans-Bold.ttf) format("opentype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: local("WorkSans-Light"),
     url(../../fonts/WorkSans-Light.ttf) format("opentype");
+  font-weight: lighter;
 }
