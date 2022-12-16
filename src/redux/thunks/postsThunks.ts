@@ -4,13 +4,14 @@ import { loadPostsActionCreator } from "../feature/postsSlice";
 import { loadingActionCreator } from "../feature/uiSlice";
 import { AppDispatch } from "../store/store";
 
-export const getAllPostsThunk =
-  (url: string) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator({ loading: true }));
+const url = process.env.REACT_APP_API_URL as string;
 
-    try {
-      const { data: posts }: AxiosResponse<IPost[]> = await axios.get(url);
+export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
+  dispatch(loadingActionCreator({ loading: true }));
 
-      dispatch(loadPostsActionCreator(posts));
-    } catch (error) {}
-  };
+  try {
+    const { data: posts }: AxiosResponse<IPost[]> = await axios.get(url);
+
+    dispatch(loadPostsActionCreator(posts));
+  } catch (error) {}
+};
