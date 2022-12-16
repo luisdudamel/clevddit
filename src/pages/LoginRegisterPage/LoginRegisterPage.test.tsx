@@ -1,5 +1,13 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import LoginRegisterPage from "./LoginRegisterPage";
+
+let mockPath: string;
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useLocation: () => ({ pathname: mockPath }),
+}));
 
 describe("Given a LoginRegisterPage function", () => {
   describe("When called", () => {
@@ -7,7 +15,13 @@ describe("Given a LoginRegisterPage function", () => {
       const expectedMemberText = "Not a member?";
       const expectedSignUpText = "Sign up here";
 
-      render(<LoginRegisterPage />);
+      mockPath = "/login";
+
+      render(
+        <BrowserRouter>
+          <LoginRegisterPage />
+        </BrowserRouter>
+      );
 
       const memberText = screen.getByText(expectedMemberText);
       const signUpText = screen.getByText(expectedSignUpText);

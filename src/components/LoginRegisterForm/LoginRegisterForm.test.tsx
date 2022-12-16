@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 import LoginRegisterForm from "./LoginRegisterForm";
 
 describe("Given a LoginRegisterForm function", () => {
@@ -7,7 +8,11 @@ describe("Given a LoginRegisterForm function", () => {
     test("Then it should render an image with the alternative text `Cleverpy company logo`", () => {
       const expectedAlternativeLogo = "Cleverpy company logo";
 
-      render(<LoginRegisterForm />);
+      render(
+        <BrowserRouter>
+          <LoginRegisterForm location="login" />
+        </BrowserRouter>
+      );
 
       const logoImage = screen.getByAltText(expectedAlternativeLogo);
 
@@ -17,7 +22,11 @@ describe("Given a LoginRegisterForm function", () => {
     test("Then it should render a disabled button with the text `Login`", () => {
       const expectedButtonText = "Login";
 
-      render(<LoginRegisterForm />);
+      render(
+        <BrowserRouter>
+          <LoginRegisterForm location="login" />
+        </BrowserRouter>
+      );
 
       const disabledButton = screen.getByRole("button", {
         name: expectedButtonText,
@@ -33,7 +42,11 @@ describe("Given a LoginRegisterForm function", () => {
       const mockUsername = "admin";
       const mockPassword = "admin";
 
-      render(<LoginRegisterForm />);
+      render(
+        <BrowserRouter>
+          <LoginRegisterForm location="login" />
+        </BrowserRouter>
+      );
       const usernameInput = screen.getAllByRole("textbox");
 
       await userEvent.type(usernameInput[0], mockUsername);
@@ -54,7 +67,11 @@ describe("Given a LoginRegisterForm function", () => {
       const mockUsername = "admin";
       const mockPassword = "admin";
 
-      render(<LoginRegisterForm />);
+      render(
+        <BrowserRouter>
+          <LoginRegisterForm location="login" />
+        </BrowserRouter>
+      );
       const usernameInput = screen.getAllByRole("textbox");
 
       await userEvent.type(usernameInput[0], mockUsername);

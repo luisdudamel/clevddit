@@ -3,7 +3,13 @@ import { UserCredentials } from "../../interfaces/UserCredentials";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 
-const LoginRegisterForm = (): JSX.Element => {
+interface LoginRegisterFormProps {
+  location: string;
+}
+
+const LoginRegisterForm = ({
+  location,
+}: LoginRegisterFormProps): JSX.Element => {
   const formInitialState: UserCredentials = {
     username: "",
     password: "",
