@@ -1,0 +1,30 @@
+@use "../../styles/sass/variables/colors";
+
+.login-form {
+  width: 321px;
+  height: 276px;
+  left: 36px;
+  top: 321px;
+  background: colors.$white;
+  border-radius: 29px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--input {
+    font-family: inherit;
+    width: 80%;
+  }
+
+  &--logo {
+    width: 65px;
+  }
+}
