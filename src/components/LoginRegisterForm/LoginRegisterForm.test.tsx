@@ -46,4 +46,28 @@ describe("Given a LoginRegisterForm function", () => {
       expect(disabledButton).toBeEnabled();
     });
   });
+  describe("When called and the user enters username `admin` and password `admin` and clicks on the Login button", () => {
+    test("Then the form inputs should be empty", async () => {
+      const expectedButtonText = "Login";
+      const expectedUsernameInput = "";
+      const expectedPasswordInput = "";
+      const mockUsername = "admin";
+      const mockPassword = "admin";
+
+      render(<LoginRegisterForm />);
+      const usernameInput = screen.getAllByRole("textbox");
+
+      await userEvent.type(usernameInput[0], mockUsername);
+      await userEvent.type(usernameInput[1], mockPassword);
+
+      const disabledButton = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+
+      await userEvent.click(disabledButton);
+
+      expect(usernameInput[0].textContent).toBe(expectedUsernameInput);
+      expect(usernameInput[1].textContent).toBe(expectedPasswordInput);
+    });
+  });
 });
