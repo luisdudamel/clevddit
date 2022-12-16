@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "../../redux/store/store";
 import LoginRegisterPage from "./LoginRegisterPage";
 
 let mockPath: string;
@@ -18,9 +20,11 @@ describe("Given a LoginRegisterPage function", () => {
       mockPath = "/login";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterPage />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterPage />
+          </BrowserRouter>
+        </Provider>
       );
 
       const memberText = screen.getByText(expectedMemberText);
@@ -39,9 +43,11 @@ describe("Given a LoginRegisterPage function", () => {
       mockPath = "/register";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterPage />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterPage />
+          </BrowserRouter>
+        </Provider>
       );
 
       const memberText = screen.getByText(expectedMemberText);

@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "../../redux/store/store";
 import LoginRegisterForm from "./LoginRegisterForm";
 
 describe("Given a LoginRegisterForm function", () => {
@@ -9,9 +11,11 @@ describe("Given a LoginRegisterForm function", () => {
       const expectedAlternativeLogo = "Cleverpy company logo";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterForm location="/login" />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterForm location="/login" />
+          </BrowserRouter>
+        </Provider>
       );
 
       const logoImage = screen.getByAltText(expectedAlternativeLogo);
@@ -23,9 +27,11 @@ describe("Given a LoginRegisterForm function", () => {
       const expectedButtonText = "Login";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterForm location="/login" />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterForm location="/login" />
+          </BrowserRouter>
+        </Provider>
       );
 
       const disabledButton = screen.getByRole("button", {
@@ -43,9 +49,11 @@ describe("Given a LoginRegisterForm function", () => {
       const mockPassword = "admin";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterForm location="/login" />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterForm location="/login" />
+          </BrowserRouter>
+        </Provider>
       );
       const usernameInput = screen.getAllByRole("textbox");
 
@@ -68,9 +76,11 @@ describe("Given a LoginRegisterForm function", () => {
       const mockPassword = "admin";
 
       render(
-        <BrowserRouter>
-          <LoginRegisterForm location="/login" />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginRegisterForm location="/login" />
+          </BrowserRouter>
+        </Provider>
       );
       const usernameInput = screen.getAllByRole("textbox");
 
