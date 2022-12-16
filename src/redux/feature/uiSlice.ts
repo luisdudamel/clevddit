@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Loading } from "../../interfaces/uiFeedback";
 
 const initialState: Loading = {
-  loading: false,
+  loading: true,
 };
 
 const uiSlice = createSlice({
