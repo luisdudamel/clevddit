@@ -5,11 +5,13 @@ const LoginRegisterForm = (): JSX.Element => {
   return (
     <>
       <div className="login-form__container">
-        <img
-          className="login-form--logo"
-          src="img/cleverpy-logo.png"
-          alt="Cleverpy company logo"
-        />
+        <div className="logo-container">
+          <img
+            className="login-form--logo"
+            src="img/cleverpy-logo.png"
+            alt="Cleverpy company logo"
+          />
+        </div>
         <form className="login-form" action="submit">
           <label hidden htmlFor="username" id="username">
             Username
