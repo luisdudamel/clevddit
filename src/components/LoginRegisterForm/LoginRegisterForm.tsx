@@ -74,7 +74,11 @@ const LoginRegisterForm = ({
             onChange={changeData}
             value={formData.password}
           />
-          <Button disabled={isButtonDisabled} type="submit" text="Login" />
+          <Button
+            disabled={isButtonDisabled}
+            type="submit"
+            text={location === "/login" ? "Login" : "Register"}
+          />
         </form>
       </div>
     </>

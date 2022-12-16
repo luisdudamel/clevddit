@@ -10,7 +10,7 @@ describe("Given a LoginRegisterForm function", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm location="login" />
+          <LoginRegisterForm location="/login" />
         </BrowserRouter>
       );
 
@@ -24,7 +24,7 @@ describe("Given a LoginRegisterForm function", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm location="login" />
+          <LoginRegisterForm location="/login" />
         </BrowserRouter>
       );
 
@@ -44,7 +44,7 @@ describe("Given a LoginRegisterForm function", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm location="login" />
+          <LoginRegisterForm location="/login" />
         </BrowserRouter>
       );
       const usernameInput = screen.getAllByRole("textbox");
@@ -69,7 +69,7 @@ describe("Given a LoginRegisterForm function", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm location="login" />
+          <LoginRegisterForm location="/login" />
         </BrowserRouter>
       );
       const usernameInput = screen.getAllByRole("textbox");

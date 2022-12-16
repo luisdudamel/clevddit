@@ -4,7 +4,7 @@ import "./LoginRegisterPage.scss";
 
 const LoginRegisterPage = (): JSX.Element => {
   const { pathname } = useLocation();
-  console.log(pathname);
+
   return (
     <main className="login-page">
       <h1 className="login-page__title">Welcome to clevddit!</h1>

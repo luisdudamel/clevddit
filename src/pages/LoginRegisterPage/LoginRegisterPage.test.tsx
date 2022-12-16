@@ -10,12 +10,33 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Given a LoginRegisterPage function", () => {
-  describe("When called", () => {
+  describe("When called and the path is `/login`", () => {
     test("Then it should render the text `Not a member?` and the text `Sign up here`", () => {
       const expectedMemberText = "Not a member?";
       const expectedSignUpText = "Sign up here";
 
       mockPath = "/login";
+
+      render(
+        <BrowserRouter>
+          <LoginRegisterPage />
+        </BrowserRouter>
+      );
+
+      const memberText = screen.getByText(expectedMemberText);
+      const signUpText = screen.getByText(expectedSignUpText);
+
+      expect(memberText).toBeInTheDocument();
+      expect(signUpText).toBeInTheDocument();
+    });
+  });
+
+  describe("When called and the path is `/register`", () => {
+    test("Then it should render the text `Not a member?` and the text `Sign up here`", () => {
+      const expectedMemberText = "Already a member?";
+      const expectedSignUpText = "Go to login";
+
+      mockPath = "/register";
 
       render(
         <BrowserRouter>
