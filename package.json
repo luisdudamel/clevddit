@@ -49,5 +49,20 @@
     "husky": "^8.0.0",
     "jest": "^27.5.1",
     "sass": "^1.56.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.tsx",
+      "src/**/*.ts",
+      "!src/index.tsx",
+      "!src/interfaces/*.ts",
+      "!src/App.tsx",
+      "!src/**/*.test.ts",
+      "!src/reportWebVitals.ts",
+      "!src/setupTests.ts",
+      "!src/react-app-env.d.ts",
+      "!src/setupTests.ts",
+      "!src/mocks/*"
+    ]
   }
 }
