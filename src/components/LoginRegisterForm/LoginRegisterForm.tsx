@@ -1,13 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { UserCredentials } from "../../interfaces/UserCredentials";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 
 const LoginRegisterForm = (): JSX.Element => {
+  const formInitialState: UserCredentials = {
+    username: "",
+    password: "",
+  };
+
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [formData, setFormData] = useState<UserCredentials>(formInitialState);
+
+  useEffect(() => {
+    if (formData.password !== "" && formData.username !== "") {
+      setIsButtonDisabled(false);
+      return;
+    }
+  }, [formData.password, formData.username]);
 
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     console.log("asdasd");
+  };
+
+  const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
   return (
@@ -34,6 +52,8 @@ const LoginRegisterForm = (): JSX.Element => {
             type="text"
             name="username"
             id="username"
+            onChange={changeData}
+            value={formData.username}
           />
           <label hidden htmlFor="password" id="password">
             Password
@@ -44,6 +64,8 @@ const LoginRegisterForm = (): JSX.Element => {
             type="text"
             name="password"
             id="password"
+            onChange={changeData}
+            value={formData.password}
           />
           <Button disabled={isButtonDisabled} type="submit" text="Login" />
         </form>
