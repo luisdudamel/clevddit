@@ -21,7 +21,7 @@ const LoginRegisterForm = (): JSX.Element => {
 
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log("asdasd");
+    setFormData(formInitialState);
   };
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
