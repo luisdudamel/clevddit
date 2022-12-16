@@ -15,7 +15,6 @@ const LoginRegisterForm = (): JSX.Element => {
   useEffect(() => {
     if (formData.password !== "" && formData.username !== "") {
       setIsButtonDisabled(false);
-      return;
     }
   }, [formData.password, formData.username]);
 
