@@ -2,11 +2,16 @@ import "./Button.scss";
 
 interface ButtonProps {
   text: string;
-  type: string;
+  type: "button" | "submit" | "reset" | undefined;
+  disabled: boolean;
 }
 
-const Button = ({ text, type }: ButtonProps): JSX.Element => {
-  return <button>{text}</button>;
+const Button = ({ text, type, disabled }: ButtonProps): JSX.Element => {
+  return (
+    <button disabled={disabled} type={type}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;

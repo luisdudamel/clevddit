@@ -1,7 +1,15 @@
+import { useState } from "react";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 
 const LoginRegisterForm = (): JSX.Element => {
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+
+  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    console.log("asdasd");
+  };
+
   return (
     <>
       <div className="login-form__container">
@@ -12,7 +20,11 @@ const LoginRegisterForm = (): JSX.Element => {
             alt="Cleverpy company logo"
           />
         </div>
-        <form className="login-form" action="submit">
+        <form
+          onSubmit={handleLoginSubmit}
+          className="login-form"
+          action="submit"
+        >
           <label hidden htmlFor="username" id="username">
             Username
           </label>
@@ -33,7 +45,7 @@ const LoginRegisterForm = (): JSX.Element => {
             name="password"
             id="password"
           />
-          <Button type="submit" text="Login" />
+          <Button disabled={isButtonDisabled} type="submit" text="Login" />
         </form>
       </div>
     </>

@@ -36,6 +36,10 @@
 
   button {
     margin-top: 20px;
+
+    &:disabled {
+      background: colors.$button-disabled;
+    }
   }
 }
 
