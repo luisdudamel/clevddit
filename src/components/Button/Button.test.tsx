@@ -7,7 +7,7 @@ describe("Given a Button function", () => {
       const expectedButtonText = "Login";
       const buttonText = "Login";
 
-      render(<Button text={buttonText} />);
+      render(<Button disabled={false} type="submit" text={buttonText} />);
 
       const loginButton = screen.getByRole("button", {
         name: expectedButtonText,
