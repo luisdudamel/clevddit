@@ -3,7 +3,13 @@ import { UserCredentials } from "../../interfaces/UserCredentials";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 
-const LoginRegisterForm = (): JSX.Element => {
+interface LoginRegisterFormProps {
+  location: string;
+}
+
+const LoginRegisterForm = ({
+  location,
+}: LoginRegisterFormProps): JSX.Element => {
   const formInitialState: UserCredentials = {
     username: "",
     password: "",
@@ -15,6 +21,8 @@ const LoginRegisterForm = (): JSX.Element => {
   useEffect(() => {
     if (formData.password !== "" && formData.username !== "") {
       setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
     }
   }, [formData.password, formData.username]);
 
@@ -66,7 +74,11 @@ const LoginRegisterForm = (): JSX.Element => {
             onChange={changeData}
             value={formData.password}
           />
-          <Button disabled={isButtonDisabled} type="submit" text="Login" />
+          <Button
+            disabled={isButtonDisabled}
+            type="submit"
+            text={location === "/login" ? "Login" : "Register"}
+          />
         </form>
       </div>
     </>
