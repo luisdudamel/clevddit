@@ -8,15 +8,13 @@ interface PostListProps {
 
 const PostList = ({ postList }: PostListProps): JSX.Element => {
   return (
-    <div className="post-list">
-      <ul>
-        {postList.map((post) => (
-          <li>
-            <Post />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="post-list">
+      {postList.map((post) => (
+        <li className="post-list__item" key={post.id}>
+          <Post />
+        </li>
+      ))}
+    </ul>
   );
 };
 
