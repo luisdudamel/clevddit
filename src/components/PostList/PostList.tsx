@@ -1,14 +1,20 @@
+import { IPost } from "../../interfaces/Post";
 import Post from "../Post/Post";
 import "./PostList.scss";
 
-const PostList = (): JSX.Element => {
+interface PostListProps {
+  postList: IPost[];
+}
+
+const PostList = ({ postList }: PostListProps): JSX.Element => {
   return (
-    <div className="post-list">
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-    </div>
+    <ul className="post-list">
+      {postList.map((post) => (
+        <li className="post-list__item" key={post.id}>
+          <Post post={post} />
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 324px;
   min-width: 200px;
-  height: 324px;
+  min-height: 324px;
   background: map.get(colors.$layout, "post-background");
   border-radius: 15px;
   display: flex;
@@ -29,6 +29,9 @@
     font-size: 15px;
     line-height: 18px;
     color: map.get(colors.$text, "post-body");
+  }
+  &__action {
+    cursor: pointer;
   }
 
   .actions {

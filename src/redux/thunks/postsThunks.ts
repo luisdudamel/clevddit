@@ -1,4 +1,6 @@
-import { IPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
+import { IUser } from "../../interfaces/Users";
+import { constructData } from "../../utils/postsConstructor";
 import { loadPostsActionCreator } from "../feature/postsSlice";
 import { loadingActionCreator } from "../feature/uiSlice";
 import { AppDispatch } from "../store/store";
@@ -9,10 +11,12 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
   dispatch(loadingActionCreator({ loading: true }));
 
   try {
-    const response = await fetch(url);
-    const data = (await response.json()) as IPost[];
+    const postsResponse = await fetch(`${url}posts`);
+    const postsData = (await postsResponse.json()) as RawPost[];
+    const usersResponse = await fetch(`${url}users`);
+    const usersData = (await usersResponse.json()) as IUser[];
 
-    dispatch(loadPostsActionCreator(data));
+    dispatch(loadPostsActionCreator(constructData(postsData, usersData)));
     dispatch(loadingActionCreator({ loading: false }));
   } catch (error) {}
   dispatch(loadingActionCreator({ loading: false }));

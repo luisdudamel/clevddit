@@ -1,21 +1,26 @@
+import { IPost } from "../../interfaces/Post";
 import "./Post.scss";
 
-const Post = (): JSX.Element => {
+interface PostProps {
+  post: IPost;
+}
+
+const Post = ({ post }: PostProps): JSX.Element => {
   return (
     <div className="post">
-      <h2 className="post__title">
-        sunt aut facere repellat provident occaecati excepturi optio
-        reprehenderit
-      </h2>
-      <h3 className="post__author">By Elon</h3>
-      <p className="post__body">
-        quia et suscipit nsuscipit recusandae consequuntur expedita et cum
-        nreprehenderit molestiae ut ut quas totam nnostrum rerum est autem sunt
-        rem eveniet architecto
-      </p>
+      <h2 className="post__title">{post.title}</h2>
+      <h3 className="post__author">By {post.user?.username}</h3>
+      <p className="post__body">{post.body}</p>
       <div className="actions-container">
-        <img width={48} height={48} src="img/icons/eye.svg" alt="Eye icon" />
         <img
+          className="post__action"
+          width={48}
+          height={48}
+          src="img/icons/eye.svg"
+          alt="Eye icon"
+        />
+        <img
+          className="post__action"
           width={48}
           height={48}
           src="img/icons/delete.svg"
