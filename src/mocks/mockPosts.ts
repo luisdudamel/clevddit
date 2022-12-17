@@ -20,3 +20,10 @@ export const mockPosts: IPost[] = [
     title: "Mock post title 1",
   },
 ];
+
+export const mockPost: IPost = {
+  body: "Chat gpt is capable of doing code, wow",
+  id: 2,
+  title: "ChatGPT is killing it",
+  userId: 2,
+};
