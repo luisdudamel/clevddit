@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UserCredentials } from "../../interfaces/UserCredentials";
+import { UserCredentials } from "../../interfaces/Users";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 

@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 324px;
   min-width: 200px;
-  height: 324px;
+  min-height: 324px;
   background: map.get(colors.$layout, "post-background");
   border-radius: 15px;
   display: flex;

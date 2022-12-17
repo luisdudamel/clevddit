@@ -11,7 +11,7 @@ const PostList = ({ postList }: PostListProps): JSX.Element => {
     <ul className="post-list">
       {postList.map((post) => (
         <li className="post-list__item" key={post.id}>
-          <Post />
+          <Post post={post} />
         </li>
       ))}
     </ul>
