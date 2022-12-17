@@ -3,9 +3,10 @@
 
 .loader {
   &-container {
+    position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: map.get(colors.$layout, "pages-background");
+    background-color: rgba(0, 1, 71, 0.68);
     display: flex;
     align-items: center;
     justify-content: center;

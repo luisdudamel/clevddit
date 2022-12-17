@@ -7,7 +7,7 @@ describe("Given a Post function", () => {
     test("Then it should render a heading with the text `ChatGPT is killing it`", () => {
       const expectedHeadingText = "ChatGPT is killing it";
 
-      render(<Post post={mockPost} />);
+      render(<Post deleteAction={() => {}} post={mockPost} />);
 
       const postHeading = screen.getByRole("heading", {
         name: expectedHeadingText,

@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { mockTwoPosts } from "../../mocks/mockPosts";
+import { store } from "../../redux/store/store";
 import PostList from "./PostList";
 
 describe("Given a PostList function", () => {
@@ -8,7 +10,11 @@ describe("Given a PostList function", () => {
       const expectedChatHeading = "ChatGPT is killing it";
       const expectedCopilotHeading = "Copilot is dying";
 
-      render(<PostList postList={mockTwoPosts} />);
+      render(
+        <Provider store={store}>
+          <PostList postList={mockTwoPosts} />
+        </Provider>
+      );
 
       const chatHeading = screen.getByRole("heading", {
         name: expectedChatHeading,

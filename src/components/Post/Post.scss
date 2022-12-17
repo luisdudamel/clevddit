@@ -29,6 +29,7 @@
     font-size: 15px;
     line-height: 18px;
     color: map.get(colors.$text, "post-body");
+    flex: 1;
   }
   &__action {
     cursor: pointer;

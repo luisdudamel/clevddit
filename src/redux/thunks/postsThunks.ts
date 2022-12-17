@@ -1,7 +1,10 @@
 import { RawPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { constructData } from "../../utils/postsConstructor";
-import { loadPostsActionCreator } from "../feature/postsSlice";
+import {
+  deletePostActionCreator,
+  loadPostsActionCreator,
+} from "../feature/postsSlice";
 import { loadingActionCreator } from "../feature/uiSlice";
 import { AppDispatch } from "../store/store";
 
@@ -21,3 +24,19 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
   } catch (error) {}
   dispatch(loadingActionCreator({ loading: false }));
 };
+
+export const deletePostThunk =
+  (postId: number) => async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator({ loading: true }));
+
+    try {
+      const deletePostResponse = await fetch(`${url}posts/${postId}`);
+
+      if (deletePostResponse.ok) {
+        dispatch(deletePostActionCreator(postId));
+      }
+
+      dispatch(loadingActionCreator({ loading: false }));
+    } catch (error) {}
+    dispatch(loadingActionCreator({ loading: false }));
+  };
