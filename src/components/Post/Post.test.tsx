@@ -17,9 +17,7 @@ describe("Given a Post function", () => {
       expect(postHeading).toBeInTheDocument();
     });
   });
-});
 
-describe("Given a Post function", () => {
   describe("When its called with a function and the user clicks on the image with the alternative text `Delete icon`", () => {
     test("Then it should call the received function", async () => {
       const expectedDeleteText = "Delete icon";
