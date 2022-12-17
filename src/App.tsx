@@ -7,10 +7,17 @@ import "./styles/sass/styles.scss";
 const App = (): JSX.Element => {
   return (
     <>
-      <Header />
       <Routes>
         <Route path="/*" element={<LoginRegisterPage />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
+        <Route
+          path="/home"
+          element={
+            <>
+              <Header />
+              <HomePage />
+            </>
+          }
+        ></Route>
       </Routes>
     </>
   );

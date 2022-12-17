@@ -1,0 +1,22 @@
+.post-list {
+  min-width: 100%;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .post-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .post-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .post-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
