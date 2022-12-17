@@ -1,0 +1,15 @@
+@use "../../styles/sass/variables/colors";
+
+.home-page {
+  background: colors.$background;
+  height: 100vh;
+  width: 100vw;
+
+  &__title {
+    color: colors.$primary;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: left;
+  }
+}
