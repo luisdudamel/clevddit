@@ -14,8 +14,15 @@ const Post = (): JSX.Element => {
         rem eveniet architecto
       </p>
       <div className="actions-container">
-        <img width={48} height={48} src="img/icons/eye.svg" alt="Eye icon" />
         <img
+          className="post__action"
+          width={48}
+          height={48}
+          src="img/icons/eye.svg"
+          alt="Eye icon"
+        />
+        <img
+          className="post__action"
           width={48}
           height={48}
           src="img/icons/delete.svg"

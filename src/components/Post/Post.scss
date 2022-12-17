@@ -30,6 +30,9 @@
     line-height: 18px;
     color: map.get(colors.$text, "post-body");
   }
+  &__action {
+    cursor: pointer;
+  }
 
   .actions {
     &-container {
