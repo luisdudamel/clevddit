@@ -27,3 +27,17 @@ export const mockPost: IPost = {
   title: "ChatGPT is killing it",
   userId: 2,
 };
+export const mockTwoPosts: IPost[] = [
+  {
+    body: "Chat gpt is capable of doing code, wow",
+    id: 2,
+    title: "ChatGPT is killing it",
+    userId: 2,
+  },
+  {
+    body: "Nobody uses copilot anymore :O",
+    id: 2,
+    title: "Copilot is dying",
+    userId: 2,
+  },
+];
