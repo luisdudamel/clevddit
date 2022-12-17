@@ -13,21 +13,25 @@ const Post = ({ post, deleteAction }: PostProps): JSX.Element => {
       <h3 className="post__author">By {post.user?.username}</h3>
       <p className="post__body">{post.body}</p>
       <div className="actions-container">
-        <img
-          className="post__action"
-          width={48}
-          height={48}
-          src="img/icons/eye.svg"
-          alt="Eye icon"
-        />
-        <img
-          className="post__action"
-          width={48}
-          height={48}
-          src="img/icons/delete.svg"
-          alt="Delete icon"
-          onClick={() => deleteAction(post.id)}
-        />
+        <button type="button" className="action-button">
+          <img
+            className="post__action"
+            width={48}
+            height={48}
+            src="img/icons/eye.svg"
+            alt="Open post icon"
+          />
+        </button>
+        <button type="button" className="action-button">
+          <img
+            className="post__action"
+            width={48}
+            height={48}
+            src="img/icons/delete.svg"
+            alt="Delete icon"
+            onClick={() => deleteAction(post.id)}
+          />
+        </button>
       </div>
     </div>
   );

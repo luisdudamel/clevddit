@@ -24,8 +24,15 @@
         font-size: 20px;
         line-height: 23px;
         text-align: center;
-        text-decoration-line: none;
+        text-decoration-line: underline;
+        text-decoration-color: transparent;
         color: colors.$background;
+        transition: all ease-in-out 0.2s;
+
+        &:hover {
+          text-decoration-line: underline;
+          text-decoration-color: colors.$background;
+        }
       }
       .navlink--active {
         font-weight: 700;
