@@ -4,7 +4,7 @@
 .home-page {
   background: map.get(colors.$layout, "pages-background");
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100%;
   padding: 70px 20px;
   display: flex;
   flex-direction: column;

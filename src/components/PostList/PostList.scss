@@ -2,17 +2,20 @@
   min-width: 100%;
   display: grid;
   justify-items: center;
-  gap: 20px;
+  gap: 30px;
   list-style: none;
   padding: 10px 0px;
+
+  &__item {
+  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
   .post-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .post-list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -20,5 +23,15 @@
 @media (min-width: 1400px) {
   .post-list {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 2100px) {
+  .post-list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media (min-width: 2900px) {
+  .post-list {
+    grid-template-columns: repeat(8, 1fr);
   }
 }
