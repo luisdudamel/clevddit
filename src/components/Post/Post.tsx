@@ -1,8 +1,8 @@
-import { IPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
 import "./Post.scss";
 
 interface PostProps {
-  post: IPost;
+  post: RawPost;
 }
 
 const Post = ({ post }: PostProps): JSX.Element => {

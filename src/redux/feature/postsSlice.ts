@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
 
-const initialState: IPost[] = [];
+const initialState: RawPost[] = [];
 
 const postsSlice = createSlice({
   name: "posts",
   initialState: initialState,
   reducers: {
-    loadPosts: (currentPosts, action: PayloadAction<IPost[]>) => [
+    loadPosts: (currentPosts, action: PayloadAction<RawPost[]>) => [
       ...action.payload,
     ],
   },

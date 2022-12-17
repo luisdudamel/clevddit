@@ -1,6 +1,6 @@
-import { IPost } from "../interfaces/Post";
+import { RawPost } from "../interfaces/Post";
 
-export const mockPosts: IPost[] = [
+export const mockPosts: RawPost[] = [
   {
     userId: 1,
     body: "This is a mock post",
@@ -21,13 +21,13 @@ export const mockPosts: IPost[] = [
   },
 ];
 
-export const mockPost: IPost = {
+export const mockPost: RawPost = {
   body: "Chat gpt is capable of doing code, wow",
   id: 2,
   title: "ChatGPT is killing it",
   userId: 2,
 };
-export const mockTwoPosts: IPost[] = [
+export const mockTwoPosts: RawPost[] = [
   {
     body: "Chat gpt is capable of doing code, wow",
     id: 2,

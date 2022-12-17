@@ -1,4 +1,4 @@
-import { IPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
 import { loadPostsActionCreator } from "../feature/postsSlice";
 import { loadingActionCreator } from "../feature/uiSlice";
 import { AppDispatch } from "../store/store";
@@ -10,7 +10,7 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
 
   try {
     const response = await fetch(`${url}posts`);
-    const data = (await response.json()) as IPost[];
+    const data = (await response.json()) as RawPost[];
 
     dispatch(loadPostsActionCreator(data));
     dispatch(loadingActionCreator({ loading: false }));

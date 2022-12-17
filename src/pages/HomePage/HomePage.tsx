@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import PostList from "../../components/PostList/PostList";
-import { IPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getAllPostsThunk } from "../../redux/thunks/postsThunks";
 import { getAllUsersThunk } from "../../redux/thunks/usersThunks";
@@ -9,7 +9,7 @@ import "./HomePage.scss";
 
 const HomePage = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const currentPosts: IPost[] = useAppSelector((state) => state.posts);
+  const currentPosts: RawPost[] = useAppSelector((state) => state.posts);
   const loading = useAppSelector((state) => state.ui.loading);
 
   useEffect(() => {
