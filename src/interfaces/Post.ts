@@ -8,5 +8,5 @@ export interface RawPost {
 }
 
 export interface IPost extends RawPost {
-  user: IUser;
+  user: IUser | undefined;
 }

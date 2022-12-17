@@ -30,9 +30,9 @@ export const mockPost: RawPost = {
 export const mockTwoPosts: RawPost[] = [
   {
     body: "Chat gpt is capable of doing code, wow",
-    id: 2,
+    id: 1,
     title: "ChatGPT is killing it",
-    userId: 2,
+    userId: 1,
   },
   {
     body: "Nobody uses copilot anymore :O",
