@@ -4,6 +4,7 @@ import PostList from "../../components/PostList/PostList";
 import { IPost } from "../../interfaces/Post";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getAllPostsThunk } from "../../redux/thunks/postsThunks";
+import { getAllUsersThunk } from "../../redux/thunks/usersThunks";
 import "./HomePage.scss";
 
 const HomePage = (): JSX.Element => {
@@ -13,6 +14,7 @@ const HomePage = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getAllPostsThunk());
+    dispatch(getAllUsersThunk());
   }, [dispatch]);
 
   return (

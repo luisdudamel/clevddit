@@ -1,18 +1,16 @@
-import { IPost } from "../../interfaces/Post";
-import { loadPostsActionCreator } from "../feature/postsSlice";
+import { IUser } from "../../interfaces/Users";
 import { loadingActionCreator } from "../feature/uiSlice";
 import { AppDispatch } from "../store/store";
 
 const url = process.env.REACT_APP_API_URL as string;
 
-export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
+export const getAllUsersThunk = () => async (dispatch: AppDispatch) => {
   dispatch(loadingActionCreator({ loading: true }));
 
   try {
-    const response = await fetch(`${url}posts`);
-    const data = (await response.json()) as IPost[];
-
-    dispatch(loadPostsActionCreator(data));
+    const response = await fetch(`${url}users`);
+    const data = (await response.json()) as IUser[];
+    console.log(data);
     dispatch(loadingActionCreator({ loading: false }));
   } catch (error) {}
   dispatch(loadingActionCreator({ loading: false }));
