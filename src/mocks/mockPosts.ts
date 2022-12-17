@@ -1,44 +1,53 @@
 import { IPost, RawPost } from "../interfaces/Post";
+import { mockLoadedUsers } from "./mockUsers";
 
-export const mockPosts: RawPost[] = [
+export const mockPosts: IPost[] = [
   {
-    userId: 1,
+    user: mockLoadedUsers[0],
     body: "This is a mock post",
     id: 1,
     title: "Mock post title 1",
   },
   {
-    userId: 2,
+    user: mockLoadedUsers[1],
     body: "This is a mock post",
     id: 2,
-    title: "Mock post title 1",
-  },
-  {
-    userId: 3,
-    body: "This is a mock post",
-    id: 3,
-    title: "Mock post title 1",
+    title: "Mock post title 2",
   },
 ];
 
-export const mockPost: RawPost = {
+export const mockPost: IPost = {
+  user: mockLoadedUsers[0],
   body: "Chat gpt is capable of doing code, wow",
-  id: 2,
+  id: 1,
   title: "ChatGPT is killing it",
-  userId: 2,
 };
-export const mockTwoPosts: RawPost[] = [
+export const mockTwoPosts: IPost[] = [
   {
+    user: mockLoadedUsers[0],
     body: "Chat gpt is capable of doing code, wow",
     id: 1,
     title: "ChatGPT is killing it",
-    userId: 1,
   },
   {
+    user: mockLoadedUsers[1],
     body: "Nobody uses copilot anymore :O",
     id: 2,
     title: "Copilot is dying",
+  },
+];
+export const mockTwoRawPosts: RawPost[] = [
+  {
+    userId: 1,
+    body: "Chat gpt is capable of doing code, wow",
+    id: 1,
+    title: "ChatGPT is killing it",
+  },
+  {
     userId: 2,
+    body: "Nobody uses copilot anymore :O",
+    id: 2,
+    title: "Copilot is dying",
   },
 ];
 

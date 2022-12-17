@@ -1,9 +1,9 @@
-import { RawPost } from "../../interfaces/Post";
+import { IPost } from "../../interfaces/Post";
 import Post from "../Post/Post";
 import "./PostList.scss";
 
 interface PostListProps {
-  postList: RawPost[];
+  postList: IPost[];
 }
 
 const PostList = ({ postList }: PostListProps): JSX.Element => {

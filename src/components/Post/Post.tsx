@@ -1,15 +1,15 @@
-import { RawPost } from "../../interfaces/Post";
+import { IPost } from "../../interfaces/Post";
 import "./Post.scss";
 
 interface PostProps {
-  post: RawPost;
+  post: IPost;
 }
 
 const Post = ({ post }: PostProps): JSX.Element => {
   return (
     <div className="post">
       <h2 className="post__title">{post.title}</h2>
-      <h3 className="post__author">By {post.userId}</h3>
+      <h3 className="post__author">By {post.user?.username}</h3>
       <p className="post__body">{post.body}</p>
       <div className="actions-container">
         <img
