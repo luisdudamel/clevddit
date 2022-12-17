@@ -3,9 +3,10 @@ import "./Post.scss";
 
 interface PostProps {
   post: IPost;
+  deleteAction: (id: number) => void;
 }
 
-const Post = ({ post }: PostProps): JSX.Element => {
+const Post = ({ post, deleteAction }: PostProps): JSX.Element => {
   return (
     <div className="post">
       <h2 className="post__title">{post.title}</h2>
@@ -25,6 +26,7 @@ const Post = ({ post }: PostProps): JSX.Element => {
           height={48}
           src="img/icons/delete.svg"
           alt="Delete icon"
+          onClick={() => deleteAction(post.id)}
         />
       </div>
     </div>

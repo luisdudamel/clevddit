@@ -56,7 +56,7 @@ Front end developer technical skills assessment.
 ### Post List:
 
 - Render as many post components as received, passing a heading.
-- Pass designated function to Post component depending on the obtaine state.
+- Pass designated function to Post component depending on the obtained state.
 
 ### Header:
 

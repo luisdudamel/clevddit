@@ -10,9 +10,15 @@ const postsSlice = createSlice({
     loadPosts: (currentPosts, action: PayloadAction<IPost[]>) => [
       ...action.payload,
     ],
+    deletePost: (currentPosts: IPost[], action: PayloadAction<IPost["id"]>) => [
+      ...currentPosts.filter((post) => post.id !== action.payload),
+    ],
   },
 });
 
-export const { loadPosts: loadPostsActionCreator } = postsSlice.actions;
+export const {
+  loadPosts: loadPostsActionCreator,
+  deletePost: deletePostActionCreator,
+} = postsSlice.actions;
 
 export default postsSlice.reducer;
