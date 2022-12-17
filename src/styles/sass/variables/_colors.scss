@@ -1,6 +1,27 @@
 $primary: #e62b70;
 $background: #000147;
 $background-lighter: #324a6d;
-$white: #ffffff;
 $dark: #333;
-$button-disabled: grey;
+$white: #ffffff;
+$items-disabled: grey;
+
+$text: (
+  "pages-title": $primary,
+  "post-title": $background-lighter,
+  "post-author": $primary,
+  "post-body": $dark,
+  "button-text": $white,
+  "login-links": $white,
+);
+
+$layout: (
+  "pages-background": $background,
+  "hamburger-background": $background,
+  "form-background": $white,
+  "button-background": $primary,
+  "loader-background": $white,
+  "header-background": $white,
+  "post-background": $white,
+  "button-disabled": $items-disabled,
+  "focused-input": $primary,
+);

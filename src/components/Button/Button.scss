@@ -1,9 +1,10 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 button {
   width: 170px;
   height: 45px;
-  background: colors.$primary;
+  background: map.get(colors.$layout, "button-background");
   border-radius: 14px;
   font-style: normal;
   font-family: inherit;
@@ -12,7 +13,7 @@ button {
   line-height: 23px;
   align-items: center;
   text-align: center;
-  color: colors.$white;
+  color: map.get(colors.$text, "button-text");
   border: none;
   cursor: pointer;
 }

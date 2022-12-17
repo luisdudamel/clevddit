@@ -1,7 +1,8 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 .login-page {
-  background-color: colors.$background;
+  background-color: map.get(colors.$layout, "pages-background");
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -11,14 +12,14 @@
   justify-content: space-around;
 
   &__title {
-    color: colors.$primary;
+    color: map.get(colors.$text, "pages-title");
     font-style: normal;
     font-size: 30px;
     line-height: 39px;
     text-align: center;
   }
   &__links {
-    color: colors.$white;
+    color: map.get(colors.$text, "login-links");
     text-align: center;
     font-weight: normal;
     font-size: 20px;

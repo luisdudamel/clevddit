@@ -1,4 +1,5 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 .hamburger {
   display: flex;
@@ -45,7 +46,7 @@
       top: 0px;
       left: 0px;
       position: relative;
-      background-color: colors.$background;
+      background-color: map.get(colors.$layout, "hamburger-background");
       height: 3px;
       width: 27px;
       margin-top: 6px;
@@ -55,7 +56,7 @@
       top: 0px;
       left: 0px;
       position: relative;
-      background-color: colors.$background;
+      background-color: map.get(colors.$layout, "hamburger-background");
       height: 3px;
       width: 27px;
       margin-top: 6px;
@@ -64,7 +65,7 @@
   }
 
   &__meat {
-    background-color: colors.$background;
+    background-color: map.get(colors.$layout, "hamburger-background");
     height: 3px;
     width: 27px;
     margin-top: 6px;
