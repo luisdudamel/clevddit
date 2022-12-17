@@ -1,0 +1,73 @@
+@use "../../styles/sass/variables/colors";
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  top: -2px;
+
+  &-menu {
+    &__toggler {
+      z-index: 2;
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: -5px;
+      opacity: 0;
+
+      &:checked ~ .hamburger {
+        &__meat {
+          opacity: 0;
+          transition: all 0.2s;
+        }
+        &__bread {
+          &--top {
+            top: 10px;
+            transform: rotate(45deg);
+            transition: all 0.3s;
+          }
+          &--bottom {
+            top: -8px;
+            transform: rotate(135deg);
+            transition: all 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  &__bread {
+    &--top {
+      top: 0px;
+      left: 0px;
+      position: relative;
+      background-color: colors.$background;
+      height: 3px;
+      width: 27px;
+      margin-top: 6px;
+      transition: all 0.4s;
+    }
+    &--bottom {
+      top: 0px;
+      left: 0px;
+      position: relative;
+      background-color: colors.$background;
+      height: 3px;
+      width: 27px;
+      margin-top: 6px;
+      transition: all 0.4s;
+    }
+  }
+
+  &__meat {
+    background-color: colors.$background;
+    height: 3px;
+    width: 27px;
+    margin-top: 6px;
+    transition: all 0.2s;
+  }
+}
