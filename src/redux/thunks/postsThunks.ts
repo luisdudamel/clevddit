@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from "axios";
 import { IPost } from "../../interfaces/Post";
 import { loadPostsActionCreator } from "../feature/postsSlice";
 import { loadingActionCreator } from "../feature/uiSlice";
@@ -10,8 +9,11 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
   dispatch(loadingActionCreator({ loading: true }));
 
   try {
-    const { data: posts }: AxiosResponse<IPost[]> = await axios.get(url);
+    const response = await fetch(url);
+    const data = (await response.json()) as IPost[];
 
-    dispatch(loadPostsActionCreator(posts));
+    dispatch(loadPostsActionCreator(data));
+    dispatch(loadingActionCreator({ loading: false }));
   } catch (error) {}
+  dispatch(loadingActionCreator({ loading: false }));
 };
