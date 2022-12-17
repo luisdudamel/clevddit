@@ -2,22 +2,29 @@
 @use "sass:map";
 
 .post {
-  &-container {
-    width: 100%;
-    max-width: 324px;
-    min-width: 200px;
-    height: 276px;
-    background: map.get(colors.$layout, "post-background");
-    border-radius: 15px;
-    display: flex;
-  }
+  width: 100%;
+  max-width: 324px;
+  min-width: 200px;
+  height: 276px;
+  background: map.get(colors.$layout, "post-background");
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 
-  &-title {
-    font-family: "Work Sans";
-    font-style: normal;
-    font-weight: 700;
+  &__title {
     font-size: 18px;
     line-height: 21px;
     color: map.get(colors.$text, "post-title");
+  }
+  &__author {
+    font-size: 18px;
+    line-height: 21px;
+    color: map.get(colors.$text, "post-author");
+  }
+  &__body {
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    color: map.get(colors.$text, "post-body");
   }
 }
