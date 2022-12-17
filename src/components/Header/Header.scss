@@ -3,7 +3,7 @@
 
 .header {
   &-container {
-    position: absolute;
+    position: fixed;
     height: 47px;
     background: map.get(colors.$layout, "header-background");
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -12,6 +12,34 @@
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
+
+    .navlink-container {
+      flex: 1;
+      padding-left: 100px;
+      display: flex;
+      gap: 50px;
+
+      .navlink {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        text-decoration-line: none;
+        color: colors.$background;
+      }
+      .navlink--active {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        text-decoration-line: underline;
+        color: map.get(colors.$layout, "navbar-active");
+
+        &:visited {
+          color: colors.$primary;
+        }
+      }
+    }
   }
 
   &-logo {

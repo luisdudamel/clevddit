@@ -9,6 +9,10 @@
   position: relative;
   top: -2px;
 
+  @media (min-width: 768px) {
+    display: none;
+  }
+
   &-menu {
     &__toggler {
       z-index: 2;

@@ -16,13 +16,15 @@ const PostList = ({ postList }: PostListProps): JSX.Element => {
   };
 
   return (
-    <ul className="post-list">
-      {postList.map((post) => (
-        <li className="post-list__item" key={post.id}>
-          <Post deleteAction={deletePost} post={post} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className="post-list">
+        {postList.map((post) => (
+          <li className="post-list__item" key={post.id}>
+            <Post deleteAction={deletePost} post={post} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
