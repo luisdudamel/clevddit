@@ -22,6 +22,7 @@ export const mockPost: IPost = {
   id: 1,
   title: "ChatGPT is killing it",
 };
+
 export const mockTwoPosts: IPost[] = [
   {
     user: mockLoadedUsers[0],
@@ -36,6 +37,16 @@ export const mockTwoPosts: IPost[] = [
     title: "Copilot is dying",
   },
 ];
+
+export const mockTwoPostsOneDeleted: IPost[] = [
+  {
+    user: mockLoadedUsers[0],
+    body: "Chat gpt is capable of doing code, wow",
+    id: 1,
+    title: "ChatGPT is killing it",
+  },
+];
+
 export const mockTwoRawPosts: RawPost[] = [
   {
     userId: 1,
