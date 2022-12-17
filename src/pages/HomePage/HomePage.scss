@@ -15,8 +15,14 @@
     font-style: normal;
     font-size: 30px;
     line-height: 39px;
-    margin-top: 20px;
+    margin-top: 0px;
+    padding-top: 10px;
 
+    top: 47px;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    background: map.get(colors.$layout, "pages-background");
     align-self: start;
   }
 }

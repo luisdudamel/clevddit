@@ -19,8 +19,8 @@ const HomePage = (): JSX.Element => {
 
   return (
     <>
-      {loading && <Loader />}
       <main className="home-page">
+        {loading && <Loader />}
         <h1 className="home-page__title">Posts</h1>
         <PostList postList={currentPosts} />
       </main>
