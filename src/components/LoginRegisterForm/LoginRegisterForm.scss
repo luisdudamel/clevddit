@@ -1,4 +1,5 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 .login-form {
   width: 100%;
@@ -6,7 +7,7 @@
   height: 250px;
   left: 36px;
   top: 321px;
-  background: colors.$white;
+  background: map.get(colors.$layout, "form-background");
   border-radius: 29px;
   display: flex;
   flex-direction: column;
@@ -31,7 +32,7 @@
     margin-top: 20px;
     &:focus {
       outline: none;
-      border-bottom: solid 1px colors.$primary;
+      border-bottom: solid 1px map.get(colors.$layout, "focused-input");
     }
   }
 
@@ -43,7 +44,7 @@
     margin-top: 20px;
 
     &:disabled {
-      background: colors.$button-disabled;
+      background: map.get(colors.$layout, "button-disabled");
     }
   }
 }
@@ -52,7 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: colors.$white;
+  background-color: map.get(colors.$layout, "form-background");
   width: 95px;
   height: 70px;
   border-radius: 29px 29px 0px 0px;

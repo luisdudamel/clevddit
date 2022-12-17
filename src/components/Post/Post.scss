@@ -1,4 +1,5 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 .post {
   &-container {
@@ -6,7 +7,17 @@
     max-width: 324px;
     min-width: 200px;
     height: 276px;
-    background: colors.$white;
+    background: map.get(colors.$layout, "post-background");
     border-radius: 15px;
+    display: flex;
+  }
+
+  &-title {
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: map.get(colors.$text, "post-title");
   }
 }

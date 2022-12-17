@@ -1,10 +1,11 @@
 @use "../../styles/sass/variables/colors";
+@use "sass:map";
 
 .loader {
   &-container {
     width: 100vw;
     height: 100vh;
-    background-color: colors.$background;
+    background-color: map.get(colors.$layout, "pages-background");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +14,7 @@
   &-dot {
     width: 30px;
     height: 30px;
-    background: white;
+    background: map.get(colors.$layout, "loader-background");
     border-radius: 50%;
     margin: 0 15px;
     animation: jump 1s linear infinite;
