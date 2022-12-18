@@ -13,6 +13,11 @@ const postsSlice = createSlice({
     deletePost: (currentPosts: IPost[], action: PayloadAction<IPost["id"]>) => [
       ...currentPosts.filter((post) => post.id !== action.payload),
     ],
+    editPost: (currentPosts, action: PayloadAction<IPost>) => [
+      ...currentPosts.map((post) =>
+        post.id === action.payload.id ? action.payload : post
+      ),
+    ],
   },
 });
 
