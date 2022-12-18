@@ -20,6 +20,7 @@
     line-height: 21px;
     color: map.get(colors.$text, "post-title");
   }
+
   &__author {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -27,6 +28,7 @@
     line-height: 21px;
     color: map.get(colors.$text, "post-author");
   }
+
   &__body {
     font-style: normal;
     font-size: 15px;
@@ -35,6 +37,7 @@
     height: 90px;
     overflow: hidden;
   }
+
   &__action {
     cursor: pointer;
   }

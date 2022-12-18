@@ -4,6 +4,7 @@ import Loader from "../../components/Loader/Loader";
 import { IPost } from "../../interfaces/Post";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { getPostByIdThunk } from "../../redux/thunks/postsThunks";
+import "./PostPage.scss";
 
 const PostPage = (): JSX.Element => {
   const loading = useAppSelector((store) => store.ui.loading);
@@ -41,11 +42,16 @@ const PostPage = (): JSX.Element => {
     })();
   }, [dispatch, postId]);
 
-  console.log(actualPost);
-
   return (
     <>
-      <main>{loading && <Loader />}</main>
+      <main className="post-page">
+        {loading && <Loader />}
+        <div className="post-container">
+          <h1 className="post-page__title">{actualPost.title}</h1>
+          <h2 className="post-page__author">By {actualPost.user?.username}</h2>
+          <p className="post-page__body">{actualPost.body}</p>
+        </div>
+      </main>
     </>
   );
 };
