@@ -49,7 +49,15 @@ const PostPage = (): JSX.Element => {
         <div className="post-container">
           <h1 className="post-page__title">{actualPost.title}</h1>
           <h2 className="post-page__author">By {actualPost.user?.username}</h2>
-          <p className="post-page__body">{actualPost.body}</p>
+          <div className="post-page__body">
+            <p>{actualPost.body}</p>
+            <img
+              width={40}
+              height={40}
+              src="/img/icons/edit.svg"
+              alt="Edit Icon"
+            />
+          </div>
         </div>
       </main>
     </>
