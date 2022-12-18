@@ -34,15 +34,21 @@ const PostPage = (): JSX.Element => {
   };
   const [actualPost, setActualPost] = useState<IPost>(initialPostDetail);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
+  const [editFormData, setEditFormData] = useState<IPost>(initialPostDetail);
 
   useEffect(() => {
     (async () => {
       const postToShow = await dispatch(getPostByIdThunk(postId as string));
       if (postToShow) {
         setActualPost(postToShow);
+        setEditFormData(postToShow);
       }
     })();
   }, [dispatch, postId]);
+
+  const changeData = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    setEditFormData({ ...editFormData, [event.target.id]: event.target.value });
+  };
 
   return (
     <>
@@ -57,7 +63,7 @@ const PostPage = (): JSX.Element => {
               </h2>
               <div className="post-page__body">
                 <p className="post-page__body__text">{actualPost.body}</p>
-                <button type="button">
+                <button className="post-page__body__button" type="button">
                   <img
                     width={40}
                     height={40}
@@ -77,23 +83,25 @@ const PostPage = (): JSX.Element => {
               </h1>
 
               <form className="post-page__body--edit" action="submit">
-                <label className="edit-form__title--label" htmlFor="post-title">
+                <label className="edit-form__title--label" htmlFor="title">
                   Title
                 </label>
                 <textarea
                   className="edit-form__title"
-                  name="post-title"
-                  id="post-title"
-                  value={actualPost.title}
+                  name="title"
+                  id="title"
+                  onChange={changeData}
+                  value={editFormData.title}
                 />
-                <label className="edit-form__body--label" htmlFor="post-body">
+                <label className="edit-form__body--label" htmlFor="body">
                   Post
                 </label>
                 <textarea
                   className="edit-form__body"
-                  name="post-body"
-                  id="post-body"
-                  value={actualPost.body}
+                  name="body"
+                  id="body"
+                  onChange={changeData}
+                  value={editFormData.body}
                 />
                 <Button text="Edit" type="submit" disabled={false} />
               </form>

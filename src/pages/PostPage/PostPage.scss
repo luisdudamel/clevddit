@@ -73,6 +73,13 @@
       margin-top: 0px;
     }
 
+    &__button {
+      background: transparent;
+      border: none;
+      align-self: flex-start;
+      cursor: pointer;
+    }
+
     &--edit {
       width: 100%;
       max-width: 800px;
