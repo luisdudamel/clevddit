@@ -1,0 +1,55 @@
+@use "../../styles/sass/variables/colors";
+@use "sass:map";
+
+.post-page {
+  background: map.get(colors.$layout, "pages-background");
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 70px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    color: map.get(colors.$text, "pages-title");
+    width: 100%;
+    max-width: 800px;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 39px;
+    margin-top: 0px;
+    padding-top: 10px;
+    top: 47px;
+    align-self: start;
+  }
+
+  &__author {
+    color: map.get(colors.$text, "text-white");
+    width: 100%;
+    max-width: 800px;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 39px;
+    margin-top: 0px;
+    padding-top: 10px;
+    height: 60px;
+    align-self: start;
+  }
+
+  &__body {
+    width: 100%;
+    max-width: 800px;
+    min-width: 200px;
+    min-height: 324px;
+    background: map.get(colors.$layout, "post-background");
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 23px;
+  }
+}

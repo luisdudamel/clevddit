@@ -18,7 +18,7 @@ const Post = ({ post, deleteAction }: PostProps): JSX.Element => {
             className="post__action"
             width={48}
             height={48}
-            src="img/icons/eye.svg"
+            src="/img/icons/eye.svg"
             alt="Open post icon"
           />
         </button>
@@ -27,7 +27,7 @@ const Post = ({ post, deleteAction }: PostProps): JSX.Element => {
             className="post__action"
             width={48}
             height={48}
-            src="img/icons/delete.svg"
+            src="/img/icons/delete.svg"
             alt="Delete icon"
             onClick={() => deleteAction(post.id)}
           />

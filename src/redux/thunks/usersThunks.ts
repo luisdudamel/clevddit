@@ -11,6 +11,7 @@ export const getAllUsersThunk = () => async (dispatch: AppDispatch) => {
   try {
     const response = await fetch(`${url}users`);
     const data = (await response.json()) as IUser[];
+
     dispatch(loadingActionCreator({ loading: false }));
     dispatch(loadUsersActionCreator(data));
   } catch (error) {}

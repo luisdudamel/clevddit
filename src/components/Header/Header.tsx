@@ -7,7 +7,7 @@ const Header = (): JSX.Element => {
     <header className="header__container">
       <img
         className="header__logo"
-        src="img/cleverpy-logo.png"
+        src="/img/cleverpy-logo.png"
         alt="Cleverpy pink logo"
       />
       <div className="navlink-container">
@@ -32,7 +32,7 @@ const Header = (): JSX.Element => {
         <p className="logout__text">Logout</p>
         <img
           className="logout__icon"
-          src="img/icons/logout.svg"
+          src="/img/icons/logout.svg"
           alt="Logout icon"
         />
       </div>

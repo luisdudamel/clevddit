@@ -41,7 +41,7 @@ const LoginRegisterForm = ({
         <div className="logo-container">
           <img
             className="login-form--logo"
-            src="img/cleverpy-logo.png"
+            src="/img/cleverpy-logo.png"
             alt="Cleverpy company logo"
           />
         </div>
