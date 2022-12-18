@@ -1,4 +1,4 @@
-import { RawPost } from "../../interfaces/Post";
+import { IPost, RawPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { constructData } from "../../utils/postsConstructor";
 import {
@@ -39,6 +39,24 @@ export const deletePostThunk =
       }
 
       dispatch(loadingActionCreator({ loading: false }));
+    } catch (error) {}
+    dispatch(loadingActionCreator({ loading: false }));
+  };
+
+export const getPostByIdThunk =
+  (postToGet: IPost) => async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator({ loading: true }));
+
+    try {
+      const postResponse = await fetch(`${url}posts/${postToGet.id}`);
+      const postData = (await postResponse.json()) as RawPost;
+
+      const userResponse = await fetch(`${url}users/${postToGet.user?.id}`);
+      const userData = (await userResponse.json()) as IUser;
+
+      dispatch(loadingActionCreator({ loading: false }));
+
+      return constructData([postData], [userData]);
     } catch (error) {}
     dispatch(loadingActionCreator({ loading: false }));
   };
