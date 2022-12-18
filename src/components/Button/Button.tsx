@@ -8,7 +8,7 @@ interface ButtonProps {
 
 const Button = ({ text, type, disabled }: ButtonProps): JSX.Element => {
   return (
-    <button disabled={disabled} type={type}>
+    <button className="login-register-button" disabled={disabled} type={type}>
       {text}
     </button>
   );
