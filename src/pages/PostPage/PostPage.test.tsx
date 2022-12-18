@@ -1,12 +1,28 @@
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store/store";
 import PostPage from "./PostPage";
 
+let mockId = "12";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+
+  useParams: () => ({
+    postId: mockId,
+  }),
+}));
+
 describe("Given a PostPage function", () => {
   describe("When it's called", () => {
-    test("Then it should render an image with the alternative text `Edit icon`", () => {
+    test("Then it should render an image with the alternative text `Edit icon`", async () => {
       const expectedEditAlternativeText = "Edit Icon";
+      const expectedRole = "progressbar";
 
       render(
         <Provider store={store}>
@@ -14,9 +30,12 @@ describe("Given a PostPage function", () => {
         </Provider>
       );
 
-      const editButton = screen.getByAltText(expectedEditAlternativeText);
+      await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
 
-      expect(editButton).toBeInTheDocument();
+      await waitFor(() => {
+        const editButton = screen.getByAltText(expectedEditAlternativeText);
+        expect(editButton).toBeInTheDocument();
+      });
     });
   });
 });
