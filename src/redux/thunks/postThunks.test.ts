@@ -1,6 +1,7 @@
 import { mockPost } from "../../mocks/mockPosts";
 import {
   deletePostThunk,
+  editPostThunk,
   getAllPostsThunk,
   getPostByIdThunk,
 } from "./postsThunks";
@@ -37,6 +38,19 @@ describe("Given the getPostByIdThunk function", () => {
       const dispatch = jest.fn();
 
       const thunk = getPostByIdThunk("1");
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given the editPostThunk function", () => {
+  describe("When it's called with a post to edit", () => {
+    test("Then it should call dispatch", async () => {
+      const dispatch = jest.fn();
+
+      const thunk = editPostThunk(mockPost);
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();

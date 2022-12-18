@@ -7,6 +7,7 @@ import {
 import { Provider } from "react-redux";
 import { store } from "../../redux/store/store";
 import PostPage from "./PostPage";
+import userEvent from "@testing-library/user-event";
 
 let mockId = "12";
 
@@ -57,6 +58,74 @@ describe("Given a PostPage function", () => {
           name: expectedHeading,
         });
         expect(postHeading).toBeInTheDocument();
+      });
+    });
+
+    describe("And the user clicks on the image with the alternative text `Edit Icon`", () => {
+      test("Then it should render a button with the text `Edit`", async () => {
+        const expectedButtonText = "Edit";
+        const expectedRole = "progressbar";
+        const expectedEditIconAlternativeText = "Edit Icon";
+
+        render(
+          <Provider store={store}>
+            <PostPage />
+          </Provider>
+        );
+
+        await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
+
+        const editImage = screen.getByAltText(expectedEditIconAlternativeText);
+        await userEvent.click(editImage);
+
+        await waitFor(() => {
+          const editButton = screen.getByRole("button", {
+            name: expectedButtonText,
+          });
+
+          expect(editButton).toBeInTheDocument();
+        });
+      });
+    });
+
+    describe("And the user clicks on the image with the alternative text `Edit Icon`, and types the text `New title` on the Title input", () => {
+      describe("And the user clicks on the edit button", () => {
+        test("Then it should render a heading with the text `New Title`", async () => {
+          const expectedButtonText = "Edit";
+          const expectedRole = "progressbar";
+          const expectedEditIconAlternativeText = "Edit Icon";
+          const expectedTitleRole = "Title";
+          const newTitle = "New Title";
+
+          render(
+            <Provider store={store}>
+              <PostPage />
+            </Provider>
+          );
+
+          await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
+
+          const editImage = screen.getByAltText(
+            expectedEditIconAlternativeText
+          );
+          await userEvent.click(editImage);
+
+          const editButton = screen.getByRole("button", {
+            name: expectedButtonText,
+          });
+
+          const titleInput = screen.getByRole("textbox", {
+            name: expectedTitleRole,
+          });
+
+          await userEvent.clear(titleInput);
+          await userEvent.type(titleInput, newTitle);
+          await userEvent.click(editButton);
+
+          await waitFor(() => {
+            screen.getByRole("heading", { name: newTitle });
+          });
+        });
       });
     });
   });

@@ -1,4 +1,4 @@
-import { RawPost } from "../../interfaces/Post";
+import { IPost, RawPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { constructData } from "../../utils/postsConstructor";
 import {
@@ -64,4 +64,22 @@ export const getPostByIdThunk =
     } catch (error) {}
     dispatch(loadingActionCreator({ loading: false }));
     return null;
+  };
+
+export const editPostThunk =
+  (editedPost: IPost) => async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator({ loading: true }));
+
+    try {
+      await fetch(`${url}posts/${editedPost.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify({ ...editedPost }),
+      });
+
+      dispatch(loadingActionCreator({ loading: false }));
+    } catch (error) {}
+    dispatch(loadingActionCreator({ loading: false }));
   };
