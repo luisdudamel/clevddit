@@ -3,9 +3,11 @@ import {
   mockPosts,
   mockTwoPosts,
   mockTwoPostsOneDeleted,
+  mockTwoPostsOneModified,
 } from "../../mocks/mockPosts";
 import postsReducer, {
   deletePostActionCreator,
+  editPostActionCreator,
   loadPostsActionCreator,
 } from "./postsSlice";
 
@@ -34,6 +36,21 @@ describe("Given a deletePost slice", () => {
       const actualPostsOneDeleted = postsReducer(actualPosts, deleteAction);
 
       expect(expectedPostsOneDeleted).toEqual(actualPostsOneDeleted);
+    });
+  });
+});
+
+describe("Given a editPost slice", () => {
+  describe("When its invoked with a list of posts and an modified", () => {
+    test("Then it should return the same list of posts, with the id of the post modified", () => {
+      const actualPosts: IPost[] = mockTwoPosts;
+      const actualPostModified = mockTwoPostsOneModified;
+      const expectedPostsOneModified: IPost[] = mockTwoPostsOneModified;
+
+      const editAction = editPostActionCreator(actualPostModified[1]);
+      const actualPostsOneModified = postsReducer(actualPosts, editAction);
+
+      expect(expectedPostsOneModified).toEqual(actualPostsOneModified);
     });
   });
 });

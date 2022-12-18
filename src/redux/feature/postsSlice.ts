@@ -24,6 +24,7 @@ const postsSlice = createSlice({
 export const {
   loadPosts: loadPostsActionCreator,
   deletePost: deletePostActionCreator,
+  editPost: editPostActionCreator,
 } = postsSlice.actions;
 
 export default postsSlice.reducer;
