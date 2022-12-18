@@ -30,7 +30,9 @@ export const deletePostThunk =
     dispatch(loadingActionCreator({ loading: true }));
 
     try {
-      const deletePostResponse = await fetch(`${url}posts/${postId}`);
+      const deletePostResponse = await fetch(`${url}posts/${postId}`, {
+        method: "DELETE",
+      });
 
       if (deletePostResponse.ok) {
         dispatch(deletePostActionCreator(postId));
