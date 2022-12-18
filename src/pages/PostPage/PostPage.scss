@@ -69,6 +69,10 @@
     font-size: 25px;
     line-height: 23px;
 
+    &__text {
+      margin-top: 0px;
+    }
+
     &--edit {
       width: 100%;
       max-width: 800px;

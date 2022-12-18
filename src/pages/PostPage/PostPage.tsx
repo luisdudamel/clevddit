@@ -33,6 +33,7 @@ const PostPage = (): JSX.Element => {
     },
   };
   const [actualPost, setActualPost] = useState<IPost>(initialPostDetail);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   useEffect(() => {
     (async () => {
@@ -48,24 +49,27 @@ const PostPage = (): JSX.Element => {
       <main className="post-page">
         {loading && <Loader />}
         <div className="post-container">
-          {loading && (
+          {!isEditMode && (
             <>
               <h1 className="post-page__title">{actualPost.title}</h1>
               <h2 className="post-page__author">
                 By {actualPost.user?.username}
               </h2>
               <div className="post-page__body">
-                <p>{actualPost.body}</p>
-                <img
-                  width={40}
-                  height={40}
-                  src="/img/icons/edit.svg"
-                  alt="Edit Icon"
-                />
+                <p className="post-page__body__text">{actualPost.body}</p>
+                <button type="button">
+                  <img
+                    width={40}
+                    height={40}
+                    src="/img/icons/edit.svg"
+                    alt="Edit Icon"
+                    onClick={() => setIsEditMode(true)}
+                  />
+                </button>
               </div>{" "}
             </>
           )}
-          {!loading && (
+          {isEditMode && (
             <>
               <h1 className="post-page__title--edit">
                 <span className="post-page__title--edit__accent">Edit</span>{" "}
