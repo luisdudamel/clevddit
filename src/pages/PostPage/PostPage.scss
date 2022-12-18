@@ -21,6 +21,23 @@
     padding-top: 10px;
     top: 47px;
     align-self: start;
+
+    &--edit {
+      color: map.get(colors.$text, "pages-title");
+      width: 100%;
+      max-width: 800px;
+      font-style: normal;
+      font-size: 30px;
+      line-height: 39px;
+      margin-top: 0px;
+      padding-top: 10px;
+      top: 47px;
+      align-self: start;
+
+      &__accent {
+        color: map.get(colors.$text, "text-white");
+      }
+    }
   }
 
   &__author {
@@ -51,5 +68,58 @@
     font-weight: 400;
     font-size: 25px;
     line-height: 23px;
+
+    &--edit {
+      width: 100%;
+      max-width: 800px;
+      min-width: 200px;
+      min-height: 324px;
+      background: map.get(colors.$layout, "post-background");
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      padding: 25px 25px;
+      justify-content: flex-start;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 23px;
+    }
+  }
+
+  .edit-form__title {
+    border: 1px solid #000000;
+    border-radius: 11px;
+    min-height: 100px;
+    font-family: inherit;
+    font-style: normal;
+    padding: 5px 5px;
+
+    &--label {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      color: map.get(colors.$text, "text-placeholder");
+    }
+  }
+  .edit-form__body {
+    border: 1px solid #000000;
+    border-radius: 11px;
+    min-height: 255px;
+    font-family: inherit;
+    font-style: normal;
+    padding: 10px 10px;
+
+    &--label {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      margin-top: 20px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      color: map.get(colors.$text, "text-placeholder");
+    }
   }
 }
