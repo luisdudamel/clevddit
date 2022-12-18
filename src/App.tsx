@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
           }
         ></Route>
         <Route
-          path="/post/:id"
+          path="/post/:postId"
           element={
             <>
               <Header />

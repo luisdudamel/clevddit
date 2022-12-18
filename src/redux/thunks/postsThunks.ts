@@ -44,14 +44,14 @@ export const deletePostThunk =
   };
 
 export const getPostByIdThunk =
-  (postToGet: IPost) => async (dispatch: AppDispatch) => {
+  (postToGet: string) => async (dispatch: AppDispatch) => {
     dispatch(loadingActionCreator({ loading: true }));
 
     try {
-      const postResponse = await fetch(`${url}posts/${postToGet.id}`);
+      const postResponse = await fetch(`${url}posts/${postToGet}`);
       const postData = (await postResponse.json()) as RawPost;
 
-      const userResponse = await fetch(`${url}users/${postToGet.user?.id}`);
+      const userResponse = await fetch(`${url}users/${postData.userId}`);
       const userData = (await userResponse.json()) as IUser;
 
       dispatch(loadingActionCreator({ loading: false }));
