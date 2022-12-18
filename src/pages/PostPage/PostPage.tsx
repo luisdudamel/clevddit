@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import Loader from "../../components/Loader/Loader";
 import { IPost } from "../../interfaces/Post";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -70,7 +71,8 @@ const PostPage = (): JSX.Element => {
                 <span className="post-page__title--edit__accent">Edit</span>{" "}
                 {actualPost.title}
               </h1>
-              <div className="post-page__body--edit">
+
+              <form className="post-page__body--edit" action="submit">
                 <label className="edit-form__title--label" htmlFor="post-title">
                   Title
                 </label>
@@ -89,7 +91,8 @@ const PostPage = (): JSX.Element => {
                   id="post-body"
                   value={actualPost.body}
                 />
-              </div>{" "}
+                <Button text="Edit" type="submit" disabled={false} />
+              </form>
             </>
           )}
         </div>
