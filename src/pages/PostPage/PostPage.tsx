@@ -50,6 +50,12 @@ const PostPage = (): JSX.Element => {
     setEditFormData({ ...editFormData, [event.target.id]: event.target.value });
   };
 
+  const handleEditSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    setActualPost(editFormData);
+    setIsEditMode(false);
+  };
+
   return (
     <>
       <main className="post-page">
@@ -82,7 +88,11 @@ const PostPage = (): JSX.Element => {
                 {actualPost.title}
               </h1>
 
-              <form className="post-page__body--edit" action="submit">
+              <form
+                onSubmit={handleEditSubmit}
+                className="post-page__body--edit"
+                action="submit"
+              >
                 <label className="edit-form__title--label" htmlFor="title">
                   Title
                 </label>
