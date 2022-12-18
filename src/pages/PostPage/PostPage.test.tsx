@@ -38,4 +38,26 @@ describe("Given a PostPage function", () => {
       });
     });
   });
+
+  describe("When it's called and the url param is 12", () => {
+    test("Then it should render a heading with the text `We are going to the moon!`", async () => {
+      const expectedHeading = "We are going to the moon!";
+      const expectedRole = "progressbar";
+
+      render(
+        <Provider store={store}>
+          <PostPage />
+        </Provider>
+      );
+
+      await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
+
+      await waitFor(() => {
+        const postHeading = screen.getByRole("heading", {
+          name: expectedHeading,
+        });
+        expect(postHeading).toBeInTheDocument();
+      });
+    });
+  });
 });
