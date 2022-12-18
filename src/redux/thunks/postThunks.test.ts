@@ -36,7 +36,7 @@ describe("Given the getPostByIdThunk function", () => {
     test("Then it should call dispatch", async () => {
       const dispatch = jest.fn();
 
-      const thunk = getPostByIdThunk(mockPost);
+      const thunk = getPostByIdThunk("1");
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();

@@ -1,4 +1,4 @@
-import { IPost, RawPost } from "../../interfaces/Post";
+import { RawPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { constructData } from "../../utils/postsConstructor";
 import {
@@ -14,10 +14,10 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
   dispatch(loadingActionCreator({ loading: true }));
 
   try {
-    const postsResponse = await fetch(`${url}posts`);
-    const postsData = (await postsResponse.json()) as RawPost[];
-    const usersResponse = await fetch(`${url}users`);
-    const usersData = (await usersResponse.json()) as IUser[];
+    const postsResponse: Response = await fetch(`${url}posts`);
+    const postsData: RawPost[] = await postsResponse.json();
+    const usersResponse: Response = await fetch(`${url}users`);
+    const usersData: IUser[] = await usersResponse.json();
 
     dispatch(loadPostsActionCreator(constructData(postsData, usersData)));
     dispatch(loadingActionCreator({ loading: false }));
@@ -30,9 +30,12 @@ export const deletePostThunk =
     dispatch(loadingActionCreator({ loading: true }));
 
     try {
-      const deletePostResponse = await fetch(`${url}posts/${postId}`, {
-        method: "DELETE",
-      });
+      const deletePostResponse: Response = await fetch(
+        `${url}posts/${postId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (deletePostResponse.ok) {
         dispatch(deletePostActionCreator(postId));
@@ -48,15 +51,17 @@ export const getPostByIdThunk =
     dispatch(loadingActionCreator({ loading: true }));
 
     try {
-      const postResponse = await fetch(`${url}posts/${postToGet}`);
-      const postData = (await postResponse.json()) as RawPost;
+      const postResponse: Response = await fetch(`${url}posts/${postToGet}`);
+      const postData: RawPost = await postResponse.json();
 
-      const userResponse = await fetch(`${url}users/${postData.userId}`);
-      const userData = (await userResponse.json()) as IUser;
+      const userResponse: Response = await fetch(
+        `${url}users/${postData.userId}`
+      );
+      const userData: IUser = await userResponse.json();
 
       dispatch(loadingActionCreator({ loading: false }));
-
-      return constructData([postData], [userData]);
+      return constructData([postData], [userData])[0];
     } catch (error) {}
     dispatch(loadingActionCreator({ loading: false }));
+    return null;
   };

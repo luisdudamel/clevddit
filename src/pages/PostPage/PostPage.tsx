@@ -30,14 +30,18 @@ const PostPage = (): JSX.Element => {
       website: "",
     },
   };
-  const [actualPost, setActualPost] = useState(initialPostDetail);
+  const [actualPost, setActualPost] = useState<IPost>(initialPostDetail);
 
   useEffect(() => {
     (async () => {
       const postToShow = await dispatch(getPostByIdThunk(postId as string));
-      console.log(postToShow);
+      if (postToShow) {
+        setActualPost(postToShow);
+      }
     })();
   }, [dispatch, postId]);
+
+  console.log(actualPost);
 
   return (
     <>
