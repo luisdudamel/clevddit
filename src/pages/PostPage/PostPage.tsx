@@ -4,7 +4,10 @@ import Button from "../../components/Button/Button";
 import Loader from "../../components/Loader/Loader";
 import { IPost } from "../../interfaces/Post";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { getPostByIdThunk } from "../../redux/thunks/postsThunks";
+import {
+  editPostThunk,
+  getPostByIdThunk,
+} from "../../redux/thunks/postsThunks";
 import "./PostPage.scss";
 
 const PostPage = (): JSX.Element => {
@@ -54,6 +57,7 @@ const PostPage = (): JSX.Element => {
     event.preventDefault();
     setActualPost(editFormData);
     setIsEditMode(false);
+    dispatch(editPostThunk(editFormData));
   };
 
   return (
