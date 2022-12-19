@@ -72,6 +72,7 @@
       display: none;
     }
   }
+
   &__text {
     font-style: normal;
     font-weight: 700;
@@ -79,5 +80,18 @@
     line-height: 16px;
     text-align: center;
     color: map.get(colors.$text, "navbar-active");
+    cursor: pointer;
+
+    &:hover,
+    &:hover ~ button {
+      text-decoration-line: underline;
+      text-decoration-color: colors.$primary;
+    }
+  }
+
+  &__button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
   }
 }

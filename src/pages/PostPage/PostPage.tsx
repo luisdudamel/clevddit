@@ -73,13 +73,16 @@ const PostPage = (): JSX.Element => {
               </h2>
               <div className="post-page__body">
                 <p className="post-page__body__text">{actualPost.body}</p>
-                <button className="post-page__body__button" type="button">
+                <button
+                  onClick={() => setIsEditMode(true)}
+                  className="post-page__body__button"
+                  type="button"
+                >
                   <img
                     width={40}
                     height={40}
                     src="/img/icons/edit.svg"
                     alt="Edit Icon"
-                    onClick={() => setIsEditMode(true)}
                   />
                 </button>
               </div>{" "}
