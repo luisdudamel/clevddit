@@ -9,6 +9,7 @@ const App = (): JSX.Element => {
   return (
     <>
       <Routes>
+        <Route path="/*" element={<LoginRegisterPage />}></Route>
         <Route path="/login" element={<LoginRegisterPage />}></Route>
         <Route path="/register" element={<LoginRegisterPage />}></Route>
         <Route
