@@ -7,6 +7,7 @@ import { AppDispatch } from "../store/store";
 export const loginUserThunk =
   (loginFormData: UserCredentials) => async (dispatch: AppDispatch) => {
     if (loginFormData.username === mockAdminCredentials.username) {
+      localStorage.setItem("token", "admin");
       dispatch(loginUserActionCreator(mockUnloggedAdmin));
     }
   };

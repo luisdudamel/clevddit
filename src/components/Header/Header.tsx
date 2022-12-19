@@ -12,6 +12,7 @@ const Header = (): JSX.Element => {
 
   const logoutUser = () => {
     dispatch(logoutUserActionCreator());
+    localStorage.removeItem("token");
     navigate("/login");
   };
 

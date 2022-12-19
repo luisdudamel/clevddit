@@ -19,10 +19,23 @@
     text-align: center;
   }
   &__links {
-    color: map.get(colors.$text, "login-links");
-    text-align: center;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 23px;
+    &__container {
+      color: map.get(colors.$text, "login-links");
+      text-align: center;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 23px;
+      transition: all ease-in-out 0.2s;
+    }
+
+    &__text {
+      text-decoration: none;
+      transition: all ease-in-out 0.2s;
+
+      &:visited {
+        color: map.get(colors.$text, "login-links");
+        text-decoration: none;
+      }
+    }
   }
 }

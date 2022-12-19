@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import LoginRegisterForm from "../../components/LoginRegisterForm/LoginRegisterForm";
 import { useAppSelector } from "../../redux/hooks";
@@ -16,9 +16,19 @@ const LoginRegisterPage = (): JSX.Element => {
         <main className="login-page">
           <h1 className="login-page__title">Welcome to clevddit!</h1>
           <LoginRegisterForm location={pathname} />
-          <div className="login-page__links">
+          <div className="login-page__links__container">
             <p>{pathname === "/login" ? "Not" : "Already"} a member?</p>
-            <p>{pathname === "/login" ? "Sign up here" : "Go to login"}</p>
+            <p>
+              {pathname === "/login" ? (
+                <Link className="login-page__links__text" to={"/register"}>
+                  Sign up here
+                </Link>
+              ) : (
+                <Link className="login-page__links__text" to={"/login"}>
+                  Go to login
+                </Link>
+              )}
+            </p>
           </div>
         </main>
       )}
