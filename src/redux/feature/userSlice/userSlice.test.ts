@@ -7,7 +7,7 @@ describe("Given a userReducer", () => {
       const expectedLoggedStatus = true;
       const mockUser = mockUnloggedUser;
 
-      const loginAction = loginUserActionCreator();
+      const loginAction = loginUserActionCreator(mockUnloggedUser);
       const loggedUser = userReducer(mockUser, loginAction);
 
       expect(loggedUser.logged).toBe(expectedLoggedStatus);

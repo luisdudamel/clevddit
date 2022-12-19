@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserCredentials } from "../../interfaces/Users";
+import { useAppDispatch } from "../../redux/hooks";
+import { loginUserThunk } from "../../redux/thunks/userThunk";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
 
@@ -17,6 +19,7 @@ const LoginRegisterForm = ({
   };
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [formData, setFormData] = useState<UserCredentials>(formInitialState);
@@ -32,6 +35,7 @@ const LoginRegisterForm = ({
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     setFormData(formInitialState);
+    dispatch(loginUserThunk(formData));
     navigate("/home");
   };
 

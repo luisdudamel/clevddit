@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postsSliceReducer from "../feature/postSlice/postsSlice";
 import uiSliceReducer from "../feature/uiSlice/uiSlice";
+import userSliceReducer from "../feature/userSlice/userSlice";
 import usersSliceReducer from "../feature/usersSlice/usersSlice";
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
     ui: uiSliceReducer,
     posts: postsSliceReducer,
     users: usersSliceReducer,
+    user: userSliceReducer,
   },
 });
 
