@@ -1,6 +1,6 @@
 import { IUser } from "../../interfaces/Users";
-import { loadingActionCreator } from "../feature/uiSlice";
-import { loadUsersActionCreator } from "../feature/usersSlice";
+import { loadingActionCreator } from "../feature/uiSlice/uiSlice";
+import { loadUsersActionCreator } from "../feature/usersSlice/usersSlice";
 import { AppDispatch } from "../store/store";
 
 const url = process.env.REACT_APP_API_URL as string;
