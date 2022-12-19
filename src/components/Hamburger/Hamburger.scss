@@ -17,7 +17,7 @@
   &-menu {
     position: absolute;
     top: 0;
-    right: -50vw;
+    right: -100vw;
     min-height: 100vh;
     width: 50vw;
     background-color: map.get(colors.$layout, "menu-background");
@@ -37,6 +37,45 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      .logout__text {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 16px;
+        text-align: center;
+        padding-left: 20px;
+        color: map.get(colors.$text, "navbar-active");
+        cursor: pointer;
+
+        &:hover,
+        &:hover ~ button {
+          text-decoration-line: underline;
+          text-decoration-color: colors.$primary;
+        }
+      }
+
+      .hamburger-menu__blur {
+        position: fixed;
+        top: 0;
+        right: 50vw;
+        min-height: 100vh;
+        opacity: 100;
+        width: 50vw;
+        background-color: rgba(0, 1, 71, 0.68);
+        transition: all ease-in-out 0.3s;
+      }
+    }
+
+    &__blur {
+      position: fixed;
+      top: 0;
+      right: -50vw;
+      min-height: 100vh;
+      opacity: 0;
+      width: 50vw;
+      background-color: rgba(0, 1, 71, 0.68);
+      transition: all ease-in-out 0.3s;
     }
 
     &__toggler {

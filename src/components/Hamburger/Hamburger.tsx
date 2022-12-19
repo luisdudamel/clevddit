@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserState } from "../../interfaces/Users";
 import "./Hamburger.scss";
@@ -14,6 +14,14 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
   const openMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "initial";
+    }
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -32,6 +40,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
         <div className="hamburger__bread--bottom"></div>
       </div>
       <div className={`hamburger-menu${isMenuOpen ? "--open" : ""}`}>
+        <div className="hamburger-menu__blur"></div>
         <div className="hamburger__navlink-container">
           <NavLink
             className={({ isActive }) =>
