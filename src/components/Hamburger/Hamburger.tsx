@@ -34,6 +34,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
           id="hamburger-menu"
           name="hamburger-menu"
           readOnly
+          checked={isMenuOpen}
         />
         <div className="hamburger__bread--top"></div>
         <div className="hamburger__meat"></div>
@@ -43,6 +44,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
         <div className="hamburger-menu__blur"></div>
         <div className="hamburger__navlink-container">
           <NavLink
+            onClick={openMenu}
             className={({ isActive }) =>
               isActive ? "navlink--active" : "navlink"
             }
@@ -51,6 +53,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
             Posts
           </NavLink>
           <NavLink
+            onClick={openMenu}
             className={({ isActive }) =>
               isActive ? "navlink--active" : "navlink"
             }

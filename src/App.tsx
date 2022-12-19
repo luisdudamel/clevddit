@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import CheckLogged from "./components/CheckLogged/CheckLogged";
+import CredentialsValidation from "./components/CheckLogged/CheckLogged";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
@@ -9,25 +11,36 @@ const App = (): JSX.Element => {
   return (
     <>
       <Routes>
-        <Route path="/*" element={<LoginRegisterPage />}></Route>
-        <Route path="/login" element={<LoginRegisterPage />}></Route>
-        <Route path="/register" element={<LoginRegisterPage />}></Route>
+        <Route
+          path="/*"
+          element={<CheckLogged children={<LoginRegisterPage />} />}
+        />
+        <Route path="login" element={<LoginRegisterPage />}></Route>
+        <Route path="register" element={<LoginRegisterPage />}></Route>
         <Route
           path="/home"
           element={
-            <>
-              <Header />
-              <HomePage />
-            </>
+            <CredentialsValidation
+              children={
+                <>
+                  <Header />
+                  <HomePage />
+                </>
+              }
+            />
           }
         ></Route>
         <Route
           path="/post/:postId"
           element={
-            <>
-              <Header />
-              <PostPage />
-            </>
+            <CredentialsValidation
+              children={
+                <>
+                  <Header />
+                  <PostPage />
+                </>
+              }
+            />
           }
         ></Route>
       </Routes>
