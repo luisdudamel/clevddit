@@ -12,7 +12,7 @@ const CheckLogged = ({ children }: CheckLoggedProps): JSX.Element => {
 
   useEffect(() => {
     if (!logged) {
-      navigate("/login");
+      return navigate("/login");
     }
   }, [logged, navigate]);
 

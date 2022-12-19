@@ -1,13 +1,26 @@
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import CheckLogged from "./components/CheckLogged/CheckLogged";
 import CredentialsValidation from "./components/CheckLogged/CheckLogged";
 import Header from "./components/Header/Header";
+import { mockAdminCredentials } from "./mocks/mockCredentials";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
 import PostPage from "./pages/PostPage/PostPage";
+import { useAppDispatch } from "./redux/hooks";
+import { loginUserThunk } from "./redux/thunks/userThunk";
 import "./styles/sass/styles.scss";
 
 const App = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      dispatch(loginUserThunk(mockAdminCredentials));
+    }
+  }, [dispatch, token]);
+
   return (
     <>
       <Routes>
