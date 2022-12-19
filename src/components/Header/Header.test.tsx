@@ -1,6 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import Header from "./Header";
+import userEvent from "@testing-library/user-event";
+
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("Given a Header function", () => {
   describe("When invoked", () => {
@@ -50,6 +58,43 @@ describe("Given a Header function", () => {
       });
 
       expect(usersNavlink).toHaveAttribute("aria-current", "page");
+    });
+  });
+
+  describe("When invoked and the user clicks on the button with the text `Logout icon`", () => {
+    test("Then it should call navigate", async () => {
+      const expectedLogoutText = "Logout icon";
+
+      render(
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      );
+
+      const logoutButton = screen.getByRole("button", {
+        name: expectedLogoutText,
+      });
+
+      await userEvent.click(logoutButton);
+
+      expect(mockNavigate).toHaveBeenCalled();
+    });
+  });
+
+  describe("When invoked and the user clicks on the text `Logout`", () => {
+    test("Then it should call navigate", async () => {
+      const expectedLogoutText = "Logout";
+
+      render(
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      );
+
+      const logoutText = screen.getByText(expectedLogoutText);
+      await userEvent.click(logoutText);
+
+      expect(mockNavigate).toHaveBeenCalled();
     });
   });
 });

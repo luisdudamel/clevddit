@@ -82,7 +82,8 @@
     color: map.get(colors.$text, "navbar-active");
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &:hover ~ button {
       text-decoration-line: underline;
       text-decoration-color: colors.$primary;
     }
