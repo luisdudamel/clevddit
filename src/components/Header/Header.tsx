@@ -53,7 +53,7 @@ const Header = (): JSX.Element => {
           />
         </button>
       </div>
-      <Hamburger />
+      <Hamburger logout={logoutUser} currentUser={currentUser} />
     </header>
   );
 };

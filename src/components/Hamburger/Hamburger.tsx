@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { UserState } from "../../interfaces/Users";
 import "./Hamburger.scss";
 
-const Hamburger = (): JSX.Element => {
+interface HamburgerProps {
+  currentUser: UserState;
+  logout: () => void;
+}
+
+const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const openMenu = () => {
@@ -24,7 +31,41 @@ const Hamburger = (): JSX.Element => {
         <div className="hamburger__meat"></div>
         <div className="hamburger__bread--bottom"></div>
       </div>
-      <div className={`hamburger-menu${isMenuOpen ? "--open" : ""}`}></div>
+      <div className={`hamburger-menu${isMenuOpen ? "--open" : ""}`}>
+        <div className="hamburger__navlink-container">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "navlink--active" : "navlink"
+            }
+            to={"/home"}
+          >
+            Posts
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "navlink--active" : "navlink"
+            }
+            to={"/users"}
+          >
+            Users
+          </NavLink>
+        </div>
+        <div className="hamburger__logout-container">
+          <p className="user-greeting">Hi, {currentUser.username}!</p>
+          <div className="logout-section">
+            <p onClick={logout} className="logout__text">
+              Logout
+            </p>
+            <button onClick={logout} className="logout__button">
+              <img
+                className="logout__icon"
+                src="/img/icons/logout.svg"
+                alt="Logout icon"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
