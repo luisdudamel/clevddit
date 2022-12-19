@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import CheckLogged from "./components/CheckLogged/CheckLogged";
-import CredentialsValidation from "./components/CheckLogged/CheckLogged";
+import CheckNotLogged from "./components/CheckNotLogged/CheckNotLogged";
 import Header from "./components/Header/Header";
 import { mockAdminCredentials } from "./mocks/mockCredentials";
 import HomePage from "./pages/HomePage/HomePage";
@@ -26,34 +26,48 @@ const App = (): JSX.Element => {
       <Routes>
         <Route
           path="/*"
-          element={<CheckLogged children={<LoginRegisterPage />} />}
+          element={
+            <CheckLogged>
+              <LoginRegisterPage />
+            </CheckLogged>
+          }
         />
-        <Route path="login" element={<LoginRegisterPage />}></Route>
-        <Route path="register" element={<LoginRegisterPage />}></Route>
+        <Route
+          path="login"
+          element={
+            <CheckLogged>
+              <LoginRegisterPage />
+            </CheckLogged>
+          }
+        ></Route>
+        <Route
+          path="register"
+          element={
+            <CheckLogged>
+              <LoginRegisterPage />
+            </CheckLogged>
+          }
+        ></Route>
         <Route
           path="/home"
           element={
-            <CredentialsValidation
-              children={
-                <>
-                  <Header />
-                  <HomePage />
-                </>
-              }
-            />
+            <CheckNotLogged>
+              <>
+                <Header />
+                <HomePage />
+              </>
+            </CheckNotLogged>
           }
         ></Route>
         <Route
           path="/post/:postId"
           element={
-            <CredentialsValidation
-              children={
-                <>
-                  <Header />
-                  <PostPage />
-                </>
-              }
-            />
+            <CheckNotLogged>
+              <>
+                <Header />
+                <PostPage />
+              </>
+            </CheckNotLogged>
           }
         ></Route>
       </Routes>
