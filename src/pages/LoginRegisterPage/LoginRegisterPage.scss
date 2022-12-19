@@ -34,11 +34,7 @@
 
       &:visited {
         color: map.get(colors.$text, "login-links");
-      }
-
-      &:hover {
-        text-decoration: underline;
-        color: map.get(colors.$text, "pages-title");
+        text-decoration: none;
       }
     }
   }

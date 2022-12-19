@@ -2,16 +2,16 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { UserState } from "../../interfaces/Users";
-import { mockLoggedUser } from "../../mocks/mockUsers";
+import { mockUnloggedUser } from "../../mocks/mockUsers";
 
 import { store } from "../../redux/store/store";
-import CheckLogged from "./CheckLogged";
+import CheckNotLogged from "./CheckNotLogged";
 
-let mocklogged: UserState;
+let mockUnlogged: UserState;
 
 jest.mock("../../redux/hooks", () => ({
   ...jest.requireActual("../../redux/hooks"),
-  useAppSelector: () => mocklogged.logged,
+  useAppSelector: () => mockUnlogged.logged,
 }));
 
 const mockNavigate = jest.fn();
@@ -22,16 +22,16 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Given a CredentialsValidation component", () => {
-  describe("When its invoked and the user is logged in", () => {
+  describe("When its invoked and the user is not logged in", () => {
     test("Then it should call the navigate function", () => {
-      mocklogged = { ...mockLoggedUser };
+      mockUnlogged = { ...mockUnloggedUser };
 
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <CheckLogged>
+            <CheckNotLogged>
               <h1>Clevddit</h1>
-            </CheckLogged>
+            </CheckNotLogged>
           </BrowserRouter>
         </Provider>
       );
