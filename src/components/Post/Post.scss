@@ -12,6 +12,13 @@
   flex-direction: column;
   padding: 5px 25px;
   justify-content: space-between;
+  transition: all ease-in-out 0.2s;
+
+  &:hover {
+    box-shadow: rgba(230, 43, 112, 0.4) 0px 5px,
+      rgba(230, 43, 112, 0.3) 0px 10px, rgba(230, 43, 112, 0.2) 0px 15px,
+      rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+  }
 
   &__title {
     justify-self: center;

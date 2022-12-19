@@ -4,6 +4,7 @@ import { mockTwoPosts } from "../../mocks/mockPosts";
 import { store } from "../../redux/store/store";
 import PostList from "./PostList";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 const mockDispatch = jest.fn();
 
@@ -20,7 +21,9 @@ describe("Given a PostList function", () => {
 
       render(
         <Provider store={store}>
-          <PostList postList={mockTwoPosts} />
+          <BrowserRouter>
+            <PostList postList={mockTwoPosts} />
+          </BrowserRouter>
         </Provider>
       );
 
@@ -42,7 +45,9 @@ describe("Given a PostList function", () => {
 
       render(
         <Provider store={store}>
-          <PostList postList={mockTwoPosts} />
+          <BrowserRouter>
+            <PostList postList={mockTwoPosts} />
+          </BrowserRouter>
         </Provider>
       );
 

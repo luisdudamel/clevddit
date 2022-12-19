@@ -31,7 +31,9 @@ const Header = (): JSX.Element => {
         </NavLink>
       </div>
       <div className="logout__container">
-        <p className="logout__text">Logout</p>
+        <p onClick={() => navigate("/login")} className="logout__text">
+          Logout
+        </p>
         <button onClick={() => navigate("/login")} className="logout__button">
           <img
             className="logout__icon"
