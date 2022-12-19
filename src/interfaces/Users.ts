@@ -32,3 +32,7 @@ export interface IUser {
   website: string;
   company: ICompany;
 }
+
+export interface UserState extends IUser {
+  logged: boolean;
+}

@@ -1,9 +1,18 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { logoutUserActionCreator } from "../../redux/feature/userSlice/userSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Hamburger from "../Hamburger/Hamburger";
 import "./Header.scss";
 
 const Header = (): JSX.Element => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const currentUser = useAppSelector((state) => state.user);
+
+  const logoutUser = () => {
+    dispatch(logoutUserActionCreator());
+    navigate("/login");
+  };
 
   return (
     <header className="header__container">
@@ -31,10 +40,11 @@ const Header = (): JSX.Element => {
         </NavLink>
       </div>
       <div className="logout__container">
-        <p onClick={() => navigate("/login")} className="logout__text">
+        <p className="user-greeting">Hi, {currentUser.username}!</p>|
+        <p onClick={logoutUser} className="logout__text">
           Logout
         </p>
-        <button onClick={() => navigate("/login")} className="logout__button">
+        <button onClick={logoutUser} className="logout__button">
           <img
             className="logout__icon"
             src="/img/icons/logout.svg"

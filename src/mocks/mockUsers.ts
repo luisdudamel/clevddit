@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces/Users";
+import { IUser, UserState } from "../interfaces/Users";
 
 export const mockLoadedUsers: IUser[] = [
   {
@@ -48,3 +48,53 @@ export const mockLoadedUsers: IUser[] = [
     },
   },
 ];
+
+export const mockUnloggedUser: UserState = {
+  logged: false,
+  id: 0,
+  name: "",
+  username: "",
+  email: "",
+  address: {
+    street: "",
+    suite: "",
+    city: "",
+    zipcode: "",
+    geo: {
+      lat: "",
+      lng: "",
+    },
+  },
+  phone: "",
+  website: "",
+  company: {
+    name: "",
+    catchPhrase: "",
+    bs: "",
+  },
+};
+
+export const mockUnloggedAdmin: UserState = {
+  logged: false,
+  id: 0,
+  name: "God",
+  username: "admin",
+  email: "",
+  address: {
+    street: "",
+    suite: "",
+    city: "",
+    zipcode: "",
+    geo: {
+      lat: "",
+      lng: "",
+    },
+  },
+  phone: "",
+  website: "",
+  company: {
+    name: "",
+    catchPhrase: "",
+    bs: "",
+  },
+};

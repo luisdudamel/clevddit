@@ -1,6 +1,6 @@
-import { IUser } from "../../interfaces/Users";
-import { mockLoadedUsers } from "../../mocks/mockUsers";
-import usersReducer, { loadUsersActionCreator } from "./usersSlice";
+import { IUser } from "../../../interfaces/Users";
+import { mockLoadedUsers } from "../../../mocks/mockUsers";
+import usersReducer, { loadUsersActionCreator } from "../usersSlice/usersSlice";
 
 describe("Given a loadUsers slice", () => {
   describe("When its invoked with a list of users", () => {

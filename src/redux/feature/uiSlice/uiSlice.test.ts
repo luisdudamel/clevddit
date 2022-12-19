@@ -1,4 +1,4 @@
-import { Loading } from "../../interfaces/uiFeedback";
+import { Loading } from "../../../interfaces/uiFeedback";
 import uiSliceReducer, { loadingActionCreator } from "./uiSlice";
 
 describe("Given a uiReducer", () => {

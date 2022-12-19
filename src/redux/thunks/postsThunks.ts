@@ -4,8 +4,8 @@ import { constructData } from "../../utils/postsConstructor";
 import {
   deletePostActionCreator,
   loadPostsActionCreator,
-} from "../feature/postsSlice";
-import { loadingActionCreator } from "../feature/uiSlice";
+} from "../feature/postSlice/postsSlice";
+import { loadingActionCreator } from "../feature/uiSlice/uiSlice";
 import { AppDispatch } from "../store/store";
 
 const url = process.env.REACT_APP_API_URL as string;

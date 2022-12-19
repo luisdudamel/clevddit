@@ -1,10 +1,10 @@
-import { IPost } from "../../interfaces/Post";
+import { IPost } from "../../../interfaces/Post";
 import {
   mockPosts,
   mockTwoPosts,
   mockTwoPostsOneDeleted,
   mockTwoPostsOneModified,
-} from "../../mocks/mockPosts";
+} from "../../../mocks/mockPosts";
 import postsReducer, {
   deletePostActionCreator,
   editPostActionCreator,

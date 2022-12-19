@@ -47,6 +47,8 @@ describe("Given a LoginRegisterForm function", () => {
       const expectedButtonText = "Login";
       const mockUsername = "admin";
       const mockPassword = "admin";
+      const expectedUsernameRole = "username";
+      const expectedPasswordLabel = "password";
 
       render(
         <Provider store={store}>
@@ -55,10 +57,13 @@ describe("Given a LoginRegisterForm function", () => {
           </BrowserRouter>
         </Provider>
       );
-      const usernameInput = screen.getAllByRole("textbox");
+      const usernameInput = screen.getByRole("textbox", {
+        name: expectedUsernameRole,
+      });
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
 
-      await userEvent.type(usernameInput[0], mockUsername);
-      await userEvent.type(usernameInput[1], mockPassword);
+      await userEvent.type(usernameInput, mockUsername);
+      await userEvent.type(passwordInput, mockPassword);
 
       const disabledButton = screen.getByRole("button", {
         name: expectedButtonText,
@@ -74,6 +79,8 @@ describe("Given a LoginRegisterForm function", () => {
       const expectedPasswordInput = "";
       const mockUsername = "admin";
       const mockPassword = "admin";
+      const expectedUsernameRole = "username";
+      const expectedPasswordLabel = "password";
 
       render(
         <Provider store={store}>
@@ -82,19 +89,21 @@ describe("Given a LoginRegisterForm function", () => {
           </BrowserRouter>
         </Provider>
       );
-      const usernameInput = screen.getAllByRole("textbox");
+      const usernameInput = screen.getByRole("textbox", {
+        name: expectedUsernameRole,
+      });
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
 
-      await userEvent.type(usernameInput[0], mockUsername);
-      await userEvent.type(usernameInput[1], mockPassword);
-
+      await userEvent.type(usernameInput, mockUsername);
+      await userEvent.type(passwordInput, mockPassword);
       const disabledButton = screen.getByRole("button", {
         name: expectedButtonText,
       });
 
       await userEvent.click(disabledButton);
 
-      expect(usernameInput[0].textContent).toBe(expectedUsernameInput);
-      expect(usernameInput[1].textContent).toBe(expectedPasswordInput);
+      expect(usernameInput.textContent).toBe(expectedUsernameInput);
+      expect(passwordInput.textContent).toBe(expectedPasswordInput);
     });
   });
 });
