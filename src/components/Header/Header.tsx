@@ -1,4 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import { UserState } from "../../interfaces/Users";
 import { logoutUserActionCreator } from "../../redux/feature/userSlice/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import Hamburger from "../Hamburger/Hamburger";
@@ -7,7 +8,7 @@ import "./Header.scss";
 const Header = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const currentUser = useAppSelector((state) => state.user);
+  const currentUser: UserState = useAppSelector((state) => state.user);
 
   const logoutUser = () => {
     dispatch(logoutUserActionCreator());
@@ -52,7 +53,7 @@ const Header = (): JSX.Element => {
           />
         </button>
       </div>
-      <Hamburger />
+      <Hamburger logout={logoutUser} currentUser={currentUser} />
     </header>
   );
 };

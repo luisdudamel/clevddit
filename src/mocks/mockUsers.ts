@@ -98,3 +98,27 @@ export const mockUnloggedAdmin: UserState = {
     bs: "",
   },
 };
+export const mockLoggedAdmin: UserState = {
+  logged: true,
+  id: 0,
+  name: "God",
+  username: "admin",
+  email: "",
+  address: {
+    street: "",
+    suite: "",
+    city: "",
+    zipcode: "",
+    geo: {
+      lat: "",
+      lng: "",
+    },
+  },
+  phone: "",
+  website: "",
+  company: {
+    name: "",
+    catchPhrase: "",
+    bs: "",
+  },
+};
