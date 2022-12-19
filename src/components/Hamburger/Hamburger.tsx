@@ -62,7 +62,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
         <div className="hamburger__logout-container">
           <p className="user-greeting">Hi, {currentUser.username}!</p>
           <div className="logout-section">
-            <p onClick={logout} className="logout__text">
+            <p onClick={logout} className="logout__text--hamburger">
               Logout
             </p>
             <button onClick={logout} className="logout__button">

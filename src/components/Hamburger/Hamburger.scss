@@ -38,7 +38,7 @@
       flex-direction: column;
       align-items: center;
 
-      .logout__text {
+      .logout__text--hamburger {
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
@@ -209,7 +209,7 @@
       }
     }
 
-    &__text {
+    &__text--hamburger {
       font-style: normal;
       font-weight: 700;
       font-size: 15px;
