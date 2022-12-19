@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 import Header from "./Header";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import { store } from "../../redux/store/store";
 
 const mockNavigate = jest.fn();
 
@@ -16,9 +18,11 @@ describe("Given a Header function", () => {
       const expectedLogoAlternativeText = "Cleverpy pink logo";
 
       render(
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
       );
 
       const headerLogo = screen.getByAltText(expectedLogoAlternativeText);
@@ -30,9 +34,11 @@ describe("Given a Header function", () => {
       const expectedPostsNavlinkText = "Posts";
 
       render(
-        <MemoryRouter initialEntries={["/home"]}>
-          <Header />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/home"]}>
+            <Header />
+          </MemoryRouter>
+        </Provider>
       );
 
       const postNavlink = screen.getByRole("link", {
@@ -48,9 +54,11 @@ describe("Given a Header function", () => {
       const expectedUsersNavlinkText = "Users";
 
       render(
-        <MemoryRouter initialEntries={["/users"]}>
-          <Header />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter initialEntries={["/users"]}>
+            <Header />
+          </MemoryRouter>
+        </Provider>
       );
 
       const usersNavlink = screen.getByRole("link", {
@@ -66,9 +74,11 @@ describe("Given a Header function", () => {
       const expectedLogoutText = "Logout icon";
 
       render(
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
       );
 
       const logoutButton = screen.getByRole("button", {
@@ -86,9 +96,11 @@ describe("Given a Header function", () => {
       const expectedLogoutText = "Logout";
 
       render(
-        <BrowserRouter>
-          <Header />
-        </BrowserRouter>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
       );
 
       const logoutText = screen.getByText(expectedLogoutText);
