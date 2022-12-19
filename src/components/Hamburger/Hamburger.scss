@@ -22,6 +22,9 @@
     width: 50vw;
     background-color: map.get(colors.$layout, "menu-background");
     transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &--open {
       position: absolute;

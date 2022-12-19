@@ -41,13 +41,13 @@ describe("Given a Header function", () => {
         </Provider>
       );
 
-      const postNavlink = screen.getByRole("link", {
+      const postNavlink = screen.getAllByRole("link", {
         name: expectedPostsNavlinkText,
       });
 
       debugger;
 
-      expect(postNavlink).toHaveAttribute("aria-current", "page");
+      expect(postNavlink[0]).toHaveAttribute("aria-current", "page");
     });
 
     test("Then it should render the text `Users` indicating the current page", () => {
@@ -61,11 +61,11 @@ describe("Given a Header function", () => {
         </Provider>
       );
 
-      const usersNavlink = screen.getByRole("link", {
+      const usersNavlink = screen.getAllByRole("link", {
         name: expectedUsersNavlinkText,
       });
 
-      expect(usersNavlink).toHaveAttribute("aria-current", "page");
+      expect(usersNavlink[0]).toHaveAttribute("aria-current", "page");
     });
   });
 
@@ -81,11 +81,11 @@ describe("Given a Header function", () => {
         </Provider>
       );
 
-      const logoutButton = screen.getByRole("button", {
+      const logoutButton = screen.getAllByRole("button", {
         name: expectedLogoutText,
       });
 
-      await userEvent.click(logoutButton);
+      await userEvent.click(logoutButton[0]);
 
       expect(mockNavigate).toHaveBeenCalled();
     });
@@ -103,8 +103,8 @@ describe("Given a Header function", () => {
         </Provider>
       );
 
-      const logoutText = screen.getByText(expectedLogoutText);
-      await userEvent.click(logoutText);
+      const logoutText = screen.getAllByText(expectedLogoutText);
+      await userEvent.click(logoutText[0]);
 
       expect(mockNavigate).toHaveBeenCalled();
     });
