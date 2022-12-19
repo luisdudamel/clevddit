@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserCredentials } from "../../interfaces/Users";
 import Button from "../Button/Button";
 import "./LoginRegisterForm.scss";
@@ -15,6 +16,8 @@ const LoginRegisterForm = ({
     password: "",
   };
 
+  const navigate = useNavigate();
+
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [formData, setFormData] = useState<UserCredentials>(formInitialState);
 
@@ -29,6 +32,7 @@ const LoginRegisterForm = ({
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     setFormData(formInitialState);
+    navigate("/home");
   };
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>): void => {
