@@ -15,11 +15,7 @@ const App = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    if (token) {
-      dispatch(loginUserThunk(mockAdminCredentials));
-    }
-  }, [dispatch, token]);
+  if (token) dispatch(loginUserThunk(mockAdminCredentials));
 
   return (
     <>
@@ -50,6 +46,17 @@ const App = (): JSX.Element => {
         ></Route>
         <Route
           path="/home"
+          element={
+            <CheckNotLogged>
+              <>
+                <Header />
+                <HomePage />
+              </>
+            </CheckNotLogged>
+          }
+        ></Route>
+        <Route
+          path="/users"
           element={
             <CheckNotLogged>
               <>
