@@ -15,12 +15,23 @@
   }
 
   &-menu {
-    position: fixed;
+    position: absolute;
     top: 0;
-    right: 0;
+    right: -50vw;
     min-height: 100vh;
     width: 50vw;
     background-color: map.get(colors.$layout, "menu-background");
+    transition: all 0.3s;
+
+    &--open {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-height: 100vh;
+      width: 50vw;
+      background-color: map.get(colors.$layout, "menu-background");
+      transition: all 0.3s;
+    }
 
     &__toggler {
       z-index: 2;

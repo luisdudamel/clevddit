@@ -24,7 +24,7 @@ const Hamburger = (): JSX.Element => {
         <div className="hamburger__meat"></div>
         <div className="hamburger__bread--bottom"></div>
       </div>
-      {isMenuOpen && <div className="hamburger-menu"></div>}
+      <div className={`hamburger-menu${isMenuOpen ? "--open" : ""}`}></div>
     </>
   );
 };
