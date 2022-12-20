@@ -59,6 +59,13 @@
 
   &__logo {
     height: 30px;
+
+    &__button {
+      padding-top: 3px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
 }
 
