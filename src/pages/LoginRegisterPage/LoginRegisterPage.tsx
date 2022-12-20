@@ -11,7 +11,7 @@ const LoginRegisterPage = (): JSX.Element => {
   return (
     <>
       {isLoading ? (
-        <Feedback userMessage="" />
+        <Feedback />
       ) : (
         <main className="login-page">
           <h1 className="login-page__title">Welcome to clevddit!</h1>

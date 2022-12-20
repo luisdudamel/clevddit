@@ -10,7 +10,7 @@ describe("Given a Feedback function", () => {
 
       render(
         <Provider store={store}>
-          <Feedback userMessage="" />
+          <Feedback />
         </Provider>
       );
 

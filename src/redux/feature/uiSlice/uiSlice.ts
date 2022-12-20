@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Feedback, ui, UserFeedback } from "../../../interfaces/uiFeedback";
+import { ui, UserFeedback } from "../../../interfaces/uiFeedback";
 
 const initialState: ui = {
   loading: false,
@@ -21,7 +21,7 @@ const uiSlice = createSlice({
       feedback: { ...ui.feedback, loaderFeedback: action.payload },
     }),
     feedbackOpen: (ui, action: PayloadAction<UserFeedback>) => ({
-      loading: false,
+      loading: action.payload.userFeedbackOpen,
       feedback: {
         ...ui.feedback,
         userFeedback: {

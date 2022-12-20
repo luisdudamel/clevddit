@@ -100,7 +100,7 @@ const DetailPage = (): JSX.Element => {
   return (
     <>
       <main className="detail-page">
-        {loading && <Feedback userMessage="" />}
+        {loading && <Feedback />}
         <div className="detail-container">
           {!isEditMode && (
             <>

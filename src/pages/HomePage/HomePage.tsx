@@ -24,7 +24,7 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <main className="home-page">
-        {loading && <Feedback userMessage="" />}
+        {loading && <Feedback />}
         <h1 className="home-page__title">{`${
           pathname === "/users" ? "Users" : "Posts"
         } `}</h1>
