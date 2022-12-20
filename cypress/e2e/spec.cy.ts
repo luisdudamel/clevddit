@@ -54,11 +54,7 @@ describe("Given a Detail page", () => {
 
       cy.get(".login-register-button").contains("Edit");
 
-      const titleInput = cy.get("#title");
-
-      titleInput.clear().type(titleToType);
-
-      titleInput.contains(expectedNewTitle);
+      cy.get("#title").clear().type(titleToType).contains(expectedNewTitle);
     });
   });
 });
