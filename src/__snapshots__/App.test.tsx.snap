@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given an App function When it's called Then it should always match this snapshot 1`] = `
+<main
+  className="login-page"
+>
+  <h1
+    className="login-page__title"
+  >
+    Welcome to clevddit!
+  </h1>
+  <div
+    className="login-form__container"
+  >
+    <div
+      className="logo-container"
+    >
+      <img
+        alt="Cleverpy company logo"
+        className="login-form--logo"
+        src="/img/cleverpy-logo.png"
+      />
+    </div>
+    <form
+      action="submit"
+      className="login-form"
+      onSubmit={[Function]}
+    >
+      <label
+        hidden={true}
+        htmlFor="username"
+        id="username"
+      >
+        Username
+      </label>
+      <input
+        aria-label="username"
+        className="login-form--input"
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+      <label
+        hidden={true}
+        htmlFor="password"
+        id="password"
+      >
+        Password
+      </label>
+      <input
+        aria-label="password"
+        autoComplete="on"
+        className="login-form--input"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button
+        className="login-register-button"
+        disabled={true}
+        type="submit"
+      >
+        Register
+      </button>
+    </form>
+  </div>
+  <div
+    className="login-page__links__container"
+  >
+    <p>
+      Already
+       a member?
+    </p>
+    <p>
+      <a
+        className="login-page__links__text"
+        href="/login"
+        onClick={[Function]}
+      >
+        Go to login
+      </a>
+    </p>
+  </div>
+</main>
+`;
