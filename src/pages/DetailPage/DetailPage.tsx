@@ -43,10 +43,10 @@ const DetailPage = (): JSX.Element => {
 
   useEffect(() => {
     (async () => {
-      const postToShow = await dispatch(getPostByIdThunk(postId as string));
-      if (postToShow) {
-        setActualPost(postToShow);
-        setEditFormData(postToShow);
+      const detailToShow = await dispatch(getPostByIdThunk(postId as string));
+      if (detailToShow) {
+        setActualPost(detailToShow);
+        setEditFormData(detailToShow);
       }
     })();
   }, [dispatch, postId]);

@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { store } from "../../redux/store/store";
 import PostPage from "./DetailPage";
 import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
 let mockId = "12";
 
@@ -26,9 +27,11 @@ describe("Given a PostPage function", () => {
       const expectedRole = "progressbar";
 
       render(
-        <Provider store={store}>
-          <PostPage />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <PostPage />
+          </Provider>
+        </BrowserRouter>
       );
 
       await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
@@ -46,9 +49,11 @@ describe("Given a PostPage function", () => {
       const expectedRole = "progressbar";
 
       render(
-        <Provider store={store}>
-          <PostPage />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <PostPage />
+          </Provider>
+        </BrowserRouter>
       );
 
       await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
@@ -68,9 +73,11 @@ describe("Given a PostPage function", () => {
         const expectedEditIconAlternativeText = "Edit Icon";
 
         render(
-          <Provider store={store}>
-            <PostPage />
-          </Provider>
+          <BrowserRouter>
+            <Provider store={store}>
+              <PostPage />
+            </Provider>
+          </BrowserRouter>
         );
 
         await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
@@ -98,9 +105,11 @@ describe("Given a PostPage function", () => {
           const newTitle = "New Title";
 
           render(
-            <Provider store={store}>
-              <PostPage />
-            </Provider>
+            <BrowserRouter>
+              <Provider store={store}>
+                <PostPage />
+              </Provider>
+            </BrowserRouter>
           );
 
           await waitForElementToBeRemoved(screen.queryByRole(expectedRole));
