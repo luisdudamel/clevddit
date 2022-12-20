@@ -8,7 +8,7 @@ export interface Feedback {
   loaderFeedback: boolean;
 }
 
-export interface ui {
+export interface uiState {
   loading: boolean;
   feedback: Feedback;
 }

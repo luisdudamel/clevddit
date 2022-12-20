@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { rest } from "msw";
-import { mockPost, mockRawPostMSW } from "./mockPosts";
+import { mockRawPostMSW } from "./mockPosts";
 
 export const handlers = [
   rest.get(`${process.env.REACT_APP_API_URL}posts/12`, (req, res, ctx) => {

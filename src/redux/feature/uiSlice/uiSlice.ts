@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ui, UserFeedback } from "../../../interfaces/uiFeedback";
+import { uiState, UserFeedback } from "../../../interfaces/uiFeedback";
 
-const initialState: ui = {
+const initialState: uiState = {
   loading: false,
   feedback: {
     loaderFeedback: false,

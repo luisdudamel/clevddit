@@ -50,7 +50,7 @@ export const deletePostThunk =
           })
         );
 
-        await setTimeout(() => {
+        setTimeout(() => {
           dispatch(
             userFeedbackActionCreator({
               feedbackMessage: "",
@@ -105,7 +105,7 @@ export const editPostThunk =
           })
         );
 
-        await setTimeout(() => {
+        setTimeout(() => {
           dispatch(
             userFeedbackActionCreator({
               feedbackMessage: "",
