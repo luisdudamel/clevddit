@@ -62,3 +62,23 @@ describe("Given a Detail page", () => {
     });
   });
 });
+
+describe("Given a hamburger menu", () => {
+  describe("When the user clicks on the link with the text `Users`", () => {
+    it("Then it should render a list of users where one is named `Samantha`", () => {
+      cy.visit("http://localhost:3000/");
+      cy.viewport("iphone-x");
+
+      cy.get('[placeholder="Username"]').type(adminUsername);
+      cy.get('[placeholder="Password"]').type(adminPassword);
+
+      cy.get(".login-register-button").click();
+
+      cy.get("#hamburger-menu").click();
+
+      cy.get(".hamburger__navlink-container > .navlink").click();
+
+      cy.get(":nth-child(3) > .user > .user__username").contains("Samantha");
+    });
+  });
+});
