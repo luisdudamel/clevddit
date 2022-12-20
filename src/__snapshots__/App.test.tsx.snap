@@ -74,8 +74,8 @@ exports[`Given an App function When it's called Then it should always match this
     className="login-page__links__container"
   >
     <p>
-      Already
-       a member?
+      Already 
+      a member?
     </p>
     <p>
       <a
