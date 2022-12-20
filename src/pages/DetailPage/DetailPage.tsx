@@ -70,7 +70,7 @@ const DetailPage = (): JSX.Element => {
   useEffect(() => {
     (async () => {
       if (postId) {
-        const postToShow = await dispatch(getPostByIdThunk(postId as string));
+        const postToShow = await dispatch(getPostByIdThunk(postId));
         if (postToShow) {
           setActualPost(postToShow);
           setEditFormData(postToShow);
@@ -78,7 +78,7 @@ const DetailPage = (): JSX.Element => {
         return;
       }
       if (userId) {
-        const userToShow = await dispatch(getUserByIdThunk(userId as string));
+        const userToShow = await dispatch(getUserByIdThunk(userId));
         if (userToShow) {
           setActualUser(userToShow);
         }
