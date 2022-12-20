@@ -41,13 +41,16 @@ export const deletePostThunk =
       );
 
       if (deletePostResponse.ok) {
+        dispatch(loadingActionCreator(false));
         dispatch(deletePostActionCreator(postId));
+        dispatch(userFeedbackActionCreator(true));
+        await setTimeout(() => {
+          dispatch(userFeedbackActionCreator(false));
+        }, 1000);
       }
-
+    } catch (error) {
       dispatch(loadingActionCreator(false));
-      dispatch(userFeedbackActionCreator(true));
-    } catch (error) {}
-    dispatch(loadingActionCreator(false));
+    }
   };
 
 export const getPostByIdThunk =
