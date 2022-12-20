@@ -1,6 +1,6 @@
-import { getAllUsersThunk } from "./usersThunks";
+import { getAllUsersThunk, getUserByIdThunk } from "./usersThunks";
 
-describe("Given the getAllUsers function", () => {
+describe("Given the getAllUsersThunk function", () => {
   describe("When it's called", () => {
     test("Then it should call dispatch", async () => {
       const dispatch = jest.fn();
@@ -12,5 +12,15 @@ describe("Given the getAllUsers function", () => {
     });
   });
 });
+describe("Given the getUserByIdThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should call dispatch", async () => {
+      const dispatch = jest.fn();
 
-export {};
+      const thunk = getUserByIdThunk("2");
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
