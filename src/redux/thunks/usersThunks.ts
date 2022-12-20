@@ -17,3 +17,17 @@ export const getAllUsersThunk = () => async (dispatch: AppDispatch) => {
   } catch (error) {}
   dispatch(loadingActionCreator({ loading: false }));
 };
+
+export const getUserByIdThunk =
+  (userId: string) => async (dispatch: AppDispatch) => {
+    dispatch(loadingActionCreator({ loading: true }));
+
+    try {
+      const response = await fetch(`${url}users/${userId}`);
+      const userData = (await response.json()) as IUser;
+
+      dispatch(loadingActionCreator({ loading: false }));
+      return userData;
+    } catch (error) {}
+    dispatch(loadingActionCreator({ loading: false }));
+  };

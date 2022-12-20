@@ -1,7 +1,7 @@
 @use "../../styles/sass/variables/colors";
 @use "sass:map";
 
-.post-page {
+.detail-page {
   background: map.get(colors.$layout, "pages-background");
   min-height: 100vh;
   min-width: 100%;
@@ -113,6 +113,11 @@
         align-self: center;
       }
     }
+  }
+
+  &--item {
+    font-weight: 600;
+    font-size: 20px;
   }
 
   .edit-form__title {
