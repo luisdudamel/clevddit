@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { mockTwoPosts } from "../../mocks/mockPosts";
+import { mockLoadedUsers } from "../../mocks/mockUsers";
 import { store } from "../../redux/store/store";
 import PostList from "./ItemsList";
 import userEvent from "@testing-library/user-event";
@@ -55,6 +56,31 @@ describe("Given a PostList function", () => {
       await userEvent.click(deleteIcon[0]);
 
       expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When invoked with an userList with 2 users with the names `Elon Musk` and  `Steve Wozniak`", () => {
+    test("Then it should render 2 headings with the texts `Elon Musk` and `Steve Wozniak`", () => {
+      const expectedElonHeading = "Elon Musk";
+      const expectedSteveHeading = "Steve Wozniak";
+
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <PostList postList={mockTwoPosts} userList={mockLoadedUsers} />
+          </BrowserRouter>
+        </Provider>
+      );
+
+      const elonName = screen.getByRole("heading", {
+        name: expectedElonHeading,
+      });
+      const steveName = screen.getByRole("heading", {
+        name: expectedSteveHeading,
+      });
+
+      expect(elonName).toBeInTheDocument();
+      expect(steveName).toBeInTheDocument();
     });
   });
 });
