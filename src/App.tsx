@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import CheckLogged from "./components/CheckLogged/CheckLogged";
 import CheckNotLogged from "./components/CheckNotLogged/CheckNotLogged";
