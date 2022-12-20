@@ -109,4 +109,25 @@ describe("Given a Header function", () => {
       expect(mockNavigate).toHaveBeenCalled();
     });
   });
+
+  describe("When the user clicks on the button with the text `Cleverpy pink logo`", () => {
+    test("Then it should call navigate", async () => {
+      const expectedHomeButtonText = "Cleverpy pink logo";
+
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
+      );
+      const homeButton = screen.getByRole("button", {
+        name: expectedHomeButtonText,
+      });
+
+      await userEvent.click(homeButton);
+
+      expect(mockNavigate).toHaveBeenCalled();
+    });
+  });
 });
