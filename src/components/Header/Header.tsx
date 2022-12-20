@@ -16,13 +16,21 @@ const Header = (): JSX.Element => {
     navigate("/login");
   };
 
+  const goToTop = () => {
+    navigate("/home");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header className="header__container">
-      <img
-        className="header__logo"
-        src="/img/cleverpy-logo.png"
-        alt="Cleverpy pink logo"
-      />
+      <button onClick={goToTop} className="header__logo__button">
+        <img
+          className="header__logo"
+          src="/img/cleverpy-logo.png"
+          alt="Cleverpy pink logo"
+        />
+      </button>
+
       <div className="navlink-container">
         <NavLink
           className={({ isActive }) =>

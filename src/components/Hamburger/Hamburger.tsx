@@ -14,6 +14,10 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
   const openMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -46,7 +50,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
         <div className="hamburger-menu__blur"></div>
         <div className="hamburger__navlink-container">
           <NavLink
-            onClick={openMenu}
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "navlink--active" : "navlink"
             }
@@ -55,7 +59,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
             Posts
           </NavLink>
           <NavLink
-            onClick={openMenu}
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "navlink--active" : "navlink"
             }
