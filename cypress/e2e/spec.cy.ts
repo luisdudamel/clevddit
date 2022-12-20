@@ -63,7 +63,7 @@ describe("Given a Detail page", () => {
   });
 });
 
-describe("Given a hamburger menu", () => {
+describe("Given a Hamburger menu", () => {
   describe("When the user clicks on the link with the text `Users`", () => {
     it("Then it should render a list of users where one is named `Samantha`", () => {
       cy.visit("http://localhost:3000/");
@@ -79,6 +79,45 @@ describe("Given a hamburger menu", () => {
       cy.get(".hamburger__navlink-container > .navlink").click();
 
       cy.get(":nth-child(3) > .user > .user__username").contains("Samantha");
+    });
+
+    describe("And the user clicks on the hamburger menu and then clicks on the button with the text `Logout`", () => {
+      it("Then it should render a form with username and password fields.", () => {
+        const expectedLogoutText = "Logout";
+
+        cy.visit("http://localhost:3000/");
+        cy.viewport("iphone-x");
+
+        cy.get('[placeholder="Username"]').type(adminUsername);
+        cy.get('[placeholder="Password"]').type(adminPassword);
+
+        cy.get(".login-register-button").click();
+
+        cy.get("#hamburger-menu").click();
+
+        cy.get(".logout__text--hamburger").contains(expectedLogoutText).click();
+
+        cy.get('[placeholder="Username"]').type(adminUsername);
+        cy.get('[placeholder="Password"]').type(adminPassword);
+      });
+    });
+  });
+});
+
+describe("Given a Homepage page", () => {
+  describe("When the user scrolls down the page and clicks on the home button", () => {
+    it("Then it should scroll to the top of the page", () => {
+      cy.visit("http://localhost:3000/");
+
+      cy.get('[placeholder="Username"]').type(adminUsername);
+      cy.get('[placeholder="Password"]').type(adminPassword);
+
+      cy.get(".login-register-button").click();
+      cy.scrollTo(0, 500);
+
+      cy.get(".header__logo").click();
+
+      expect(window.scrollY).to.equal(0);
     });
   });
 });
