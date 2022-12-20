@@ -89,15 +89,32 @@ export const editPostThunk =
     dispatch(loadingActionCreator(true));
 
     try {
-      await fetch(`${url}posts/${editedPost.id}`, {
+      const editResponse = await fetch(`${url}posts/${editedPost.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json; charset=UTF-8",
         },
         body: JSON.stringify({ ...editedPost }),
       });
+      if (editResponse.ok) {
+        dispatch(loadingActionCreator(false));
+        dispatch(
+          userFeedbackActionCreator({
+            feedbackMessage: "Post succesfully edited",
+            userFeedbackOpen: true,
+          })
+        );
 
+        await setTimeout(() => {
+          dispatch(
+            userFeedbackActionCreator({
+              feedbackMessage: "",
+              userFeedbackOpen: false,
+            })
+          );
+        }, 1000);
+      }
+    } catch (error) {
       dispatch(loadingActionCreator(false));
-    } catch (error) {}
-    dispatch(loadingActionCreator(false));
+    }
   };
