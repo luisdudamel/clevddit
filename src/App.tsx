@@ -76,6 +76,17 @@ const App = (): JSX.Element => {
             </CheckNotLogged>
           }
         ></Route>
+        <Route
+          path="/user/:userId"
+          element={
+            <CheckNotLogged>
+              <>
+                <Header />
+                <PostPage />
+              </>
+            </CheckNotLogged>
+          }
+        ></Route>
       </Routes>
     </>
   );
