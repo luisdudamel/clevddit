@@ -1,17 +1,28 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Loading } from "../../../interfaces/uiFeedback";
+import { ui } from "../../../interfaces/uiFeedback";
 
-const initialState: Loading = {
+const initialState: ui = {
   loading: false,
+  userFeedback: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    loading: (ui, action: PayloadAction<Loading>) => ({ ...action.payload }),
+    isLoading: (ui, action: PayloadAction<boolean>) => ({
+      ...ui,
+      loading: action.payload,
+    }),
+    feedbackOpen: (ui, action: PayloadAction<boolean>) => ({
+      ...ui,
+      userFeedback: action.payload,
+    }),
   },
 });
 
-export const { loading: loadingActionCreator } = uiSlice.actions;
+export const {
+  isLoading: loadingActionCreator,
+  feedbackOpen: loadingFeedbackActionCreator,
+} = uiSlice.actions;
 export default uiSlice.reducer;

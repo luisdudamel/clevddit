@@ -11,7 +11,7 @@ import { AppDispatch } from "../store/store";
 const url = process.env.REACT_APP_API_URL as string;
 
 export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
-  dispatch(loadingActionCreator({ loading: true }));
+  dispatch(loadingActionCreator(true));
 
   try {
     const postsResponse: Response = await fetch(`${url}posts`);
@@ -20,14 +20,14 @@ export const getAllPostsThunk = () => async (dispatch: AppDispatch) => {
     const usersData: IUser[] = await usersResponse.json();
 
     dispatch(loadPostsActionCreator(constructData(postsData, usersData)));
-    dispatch(loadingActionCreator({ loading: false }));
+    dispatch(loadingActionCreator(false));
   } catch (error) {}
-  dispatch(loadingActionCreator({ loading: false }));
+  dispatch(loadingActionCreator(false));
 };
 
 export const deletePostThunk =
   (postId: number) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator({ loading: true }));
+    dispatch(loadingActionCreator(true));
 
     try {
       const deletePostResponse: Response = await fetch(
@@ -41,14 +41,14 @@ export const deletePostThunk =
         dispatch(deletePostActionCreator(postId));
       }
 
-      dispatch(loadingActionCreator({ loading: false }));
+      dispatch(loadingActionCreator(false));
     } catch (error) {}
-    dispatch(loadingActionCreator({ loading: false }));
+    dispatch(loadingActionCreator(false));
   };
 
 export const getPostByIdThunk =
   (postToGet: string) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator({ loading: true }));
+    dispatch(loadingActionCreator(true));
 
     try {
       const postResponse: Response = await fetch(`${url}posts/${postToGet}`);
@@ -59,16 +59,16 @@ export const getPostByIdThunk =
       );
       const userData: IUser = await userResponse.json();
 
-      dispatch(loadingActionCreator({ loading: false }));
+      dispatch(loadingActionCreator(false));
       return constructData([postData], [userData])[0];
     } catch (error) {}
-    dispatch(loadingActionCreator({ loading: false }));
+    dispatch(loadingActionCreator(false));
     return null;
   };
 
 export const editPostThunk =
   (editedPost: IPost) => async (dispatch: AppDispatch) => {
-    dispatch(loadingActionCreator({ loading: true }));
+    dispatch(loadingActionCreator(true));
 
     try {
       await fetch(`${url}posts/${editedPost.id}`, {
@@ -79,7 +79,7 @@ export const editPostThunk =
         body: JSON.stringify({ ...editedPost }),
       });
 
-      dispatch(loadingActionCreator({ loading: false }));
+      dispatch(loadingActionCreator(false));
     } catch (error) {}
-    dispatch(loadingActionCreator({ loading: false }));
+    dispatch(loadingActionCreator(false));
   };

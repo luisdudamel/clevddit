@@ -1,15 +1,16 @@
-import { Loading } from "../../../interfaces/uiFeedback";
+import { ui } from "../../../interfaces/uiFeedback";
 import uiSliceReducer, { loadingActionCreator } from "./uiSlice";
 
 describe("Given a uiReducer", () => {
   describe("When its invoked with the loading status 'true'", () => {
     test("Then it should return the same object with the loading status set to 'true'", () => {
       const expectedLoadingStatus = true;
-      const mockLoading: Loading = {
+      const mockLoading: ui = {
         loading: true,
+        userFeedback: false,
       };
 
-      const loadingAction = loadingActionCreator(mockLoading);
+      const loadingAction = loadingActionCreator(true);
       const loadingStatusTrue = uiSliceReducer(mockLoading, loadingAction);
 
       expect(loadingStatusTrue.loading).toBe(expectedLoadingStatus);

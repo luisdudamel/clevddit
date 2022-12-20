@@ -20,7 +20,7 @@ jest.mock("react-router-dom", () => ({
   }),
 }));
 
-describe("Given a PostPage function", () => {
+describe("Given a DetailPage function", () => {
   describe("When it's called", () => {
     test("Then it should render an image with the alternative text `Edit icon`", async () => {
       const expectedEditAlternativeText = "Edit Icon";
