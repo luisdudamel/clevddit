@@ -1,4 +1,7 @@
 export interface ui {
   loading: boolean;
-  userFeedback: boolean;
+  feedback: {
+    userFeedback: boolean;
+    loaderFeedback: boolean;
+  };
 }

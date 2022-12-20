@@ -1,7 +1,7 @@
 import { ui } from "../../../interfaces/uiFeedback";
 import uiSliceReducer, {
   loadingActionCreator,
-  loadingFeedbackActionCreator,
+  userFeedbackActionCreator,
 } from "./uiSlice";
 
 describe("Given a uiReducer", () => {
@@ -9,14 +9,16 @@ describe("Given a uiReducer", () => {
     test("Then it should return the same object with the loading status set to 'true'", () => {
       const expectedLoadingStatus = true;
       const mockLoading: ui = {
-        loading: true,
-        userFeedback: false,
+        loading: false,
+        feedback: { userFeedback: false, loaderFeedback: false },
       };
 
       const loadingAction = loadingActionCreator(true);
       const loadingStatusTrue = uiSliceReducer(mockLoading, loadingAction);
 
-      expect(loadingStatusTrue.loading).toBe(expectedLoadingStatus);
+      expect(loadingStatusTrue.feedback.loaderFeedback).toBe(
+        expectedLoadingStatus
+      );
     });
   });
 
@@ -24,14 +26,16 @@ describe("Given a uiReducer", () => {
     test("Then it should return the same object with the userFeedback status set to 'true'", () => {
       const expectedLoadingStatus = true;
       const mockLoading: ui = {
-        loading: true,
-        userFeedback: false,
+        loading: false,
+        feedback: { userFeedback: false, loaderFeedback: false },
       };
 
-      const loadingAction = loadingFeedbackActionCreator(true);
+      const loadingAction = userFeedbackActionCreator(true);
       const loadingStatusTrue = uiSliceReducer(mockLoading, loadingAction);
 
-      expect(loadingStatusTrue.loading).toBe(expectedLoadingStatus);
+      expect(loadingStatusTrue.feedback.userFeedback).toBe(
+        expectedLoadingStatus
+      );
     });
   });
 });

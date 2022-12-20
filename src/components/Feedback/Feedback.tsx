@@ -6,12 +6,12 @@ interface FeedbackProps {
 }
 
 const Feedback = ({ userMessage }: FeedbackProps): JSX.Element => {
-  const uiState = useAppSelector((state) => state.ui);
+  const uiState = useAppSelector((state) => state.ui.feedback);
 
   return (
     <>
       <div role="progressbar" aria-busy="true" className="feedback-container">
-        {uiState.loading && (
+        {uiState.loaderFeedback && (
           <>
             <div className="loader-dot"></div>
             <div className="loader-dot"></div>

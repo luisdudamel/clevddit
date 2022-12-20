@@ -3,7 +3,7 @@ import { ui } from "../../../interfaces/uiFeedback";
 
 const initialState: ui = {
   loading: false,
-  userFeedback: false,
+  feedback: { userFeedback: false, loaderFeedback: false },
 };
 
 const uiSlice = createSlice({
@@ -11,18 +11,18 @@ const uiSlice = createSlice({
   initialState,
   reducers: {
     isLoading: (ui, action: PayloadAction<boolean>) => ({
-      ...ui,
       loading: action.payload,
+      feedback: { ...ui.feedback, loaderFeedback: action.payload },
     }),
     feedbackOpen: (ui, action: PayloadAction<boolean>) => ({
-      ...ui,
-      userFeedback: action.payload,
+      loading: action.payload,
+      feedback: { ...ui.feedback, userFeedback: action.payload },
     }),
   },
 });
 
 export const {
   isLoading: loadingActionCreator,
-  feedbackOpen: loadingFeedbackActionCreator,
+  feedbackOpen: userFeedbackActionCreator,
 } = uiSlice.actions;
 export default uiSlice.reducer;
