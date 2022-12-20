@@ -78,6 +78,7 @@ const LoginRegisterForm = ({
             className="login-form--input"
             placeholder="Password"
             type="password"
+            autoComplete="on"
             name="password"
             aria-label="password"
             id="password"

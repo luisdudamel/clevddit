@@ -17,7 +17,7 @@ const LoginRegisterPage = (): JSX.Element => {
           <h1 className="login-page__title">Welcome to clevddit!</h1>
           <LoginRegisterForm location={pathname} />
           <div className="login-page__links__container">
-            <p>{pathname === "/login" ? "Not" : "Already"} a member?</p>
+            <p>{pathname === "/login" ? "Not " : "Already "}a member?</p>
             <p>
               {pathname === "/login" ? (
                 <Link className="login-page__links__text" to={"/register"}>
