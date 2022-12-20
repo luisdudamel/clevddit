@@ -1,7 +1,15 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import { mockParzivalUser } from "../../mocks/mockUsers";
 import User from "./User";
+
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
 
 describe("Given a User function", () => {
   describe("When its invoked with an user with the username `Parzival` and name `Wade Watts`", () => {
@@ -24,6 +32,25 @@ describe("Given a User function", () => {
 
       expect(parzivalUserName).toBeInTheDocument();
       expect(parzivalName).toBeInTheDocument();
+    });
+  });
+
+  describe("When the user clicks on the button with the name `Open user icon`", () => {
+    test("Then it should call navigate", async () => {
+      const expectedButtonText = "Open user icon";
+
+      render(
+        <BrowserRouter>
+          <User user={mockParzivalUser} />
+        </BrowserRouter>
+      );
+
+      const openUserButton = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+      await userEvent.click(openUserButton);
+
+      expect(mockNavigate).toHaveBeenCalled();
     });
   });
 });
