@@ -115,7 +115,7 @@ const DetailPage = (): JSX.Element => {
                 )}
               </h2>
               <div className="detail-page__body">
-                <p className="detail-page__body__text">
+                <div className="detail-page__body__text">
                   {postId ? (
                     actualPost.body
                   ) : (
@@ -170,7 +170,7 @@ const DetailPage = (): JSX.Element => {
                       </p>
                     </>
                   )}
-                </p>
+                </div>
 
                 {postId && (
                   <button
