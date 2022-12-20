@@ -1,16 +1,14 @@
 import { SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { IPost } from "../../interfaces/Post";
-import { IUser } from "../../interfaces/Users";
 import "./Post.scss";
 
 interface PostProps {
   post: IPost;
-  user?: IUser;
   deleteAction: (id: number) => void;
 }
 
-const Post = ({ post, user, deleteAction }: PostProps): JSX.Element => {
+const Post = ({ post, deleteAction }: PostProps): JSX.Element => {
   const navigate = useNavigate();
 
   const openPostDetail = () => {

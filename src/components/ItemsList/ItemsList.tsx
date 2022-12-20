@@ -3,14 +3,15 @@ import { IUser } from "../../interfaces/Users";
 import { useAppDispatch } from "../../redux/hooks";
 import { deletePostThunk } from "../../redux/thunks/postsThunks";
 import Post from "../Post/Post";
-import "./PostList.scss";
+import User from "../User/User";
+import "./ItemsList.scss";
 
 interface PostListProps {
   postList: IPost[];
   userList?: IUser[];
 }
 
-const PostList = ({ postList, userList }: PostListProps): JSX.Element => {
+const ItemsList = ({ postList, userList }: PostListProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const deletePost = (postId: number) => {
@@ -22,7 +23,9 @@ const PostList = ({ postList, userList }: PostListProps): JSX.Element => {
       <ul className="post-list">
         {userList
           ? userList.map((user) => (
-              <li className="post-list__item" key={user.id}></li>
+              <li className="post-list__item" key={user.id}>
+                <User user={user} />
+              </li>
             ))
           : postList.map((post) => (
               <li className="post-list__item" key={post.id}>
@@ -34,4 +37,4 @@ const PostList = ({ postList, userList }: PostListProps): JSX.Element => {
   );
 };
 
-export default PostList;
+export default ItemsList;

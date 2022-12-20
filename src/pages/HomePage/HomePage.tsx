@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
-import PostList from "../../components/PostList/PostList";
+import ItemsList from "../../components/ItemsList/ItemsList";
 import { IPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -28,7 +28,7 @@ const HomePage = (): JSX.Element => {
         <h1 className="home-page__title">{`${
           pathname === "/users" ? "Users" : "Posts"
         } `}</h1>
-        <PostList
+        <ItemsList
           userList={pathname === "/users" ? currentUsers : undefined}
           postList={currentPosts}
         />

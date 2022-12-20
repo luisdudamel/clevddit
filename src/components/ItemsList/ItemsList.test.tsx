@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { mockTwoPosts } from "../../mocks/mockPosts";
 import { store } from "../../redux/store/store";
-import PostList from "./PostList";
+import PostList from "./ItemsList";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
