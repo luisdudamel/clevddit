@@ -1,9 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ui } from "../../../interfaces/uiFeedback";
+import { Feedback, ui, UserFeedback } from "../../../interfaces/uiFeedback";
 
 const initialState: ui = {
   loading: false,
-  feedback: { userFeedback: false, loaderFeedback: false },
+  feedback: {
+    loaderFeedback: false,
+    userFeedback: {
+      feedbackMessage: "",
+      userFeedbackOpen: false,
+    },
+  },
 };
 
 const uiSlice = createSlice({
@@ -14,9 +20,15 @@ const uiSlice = createSlice({
       loading: action.payload,
       feedback: { ...ui.feedback, loaderFeedback: action.payload },
     }),
-    feedbackOpen: (ui, action: PayloadAction<boolean>) => ({
-      loading: action.payload,
-      feedback: { ...ui.feedback, userFeedback: action.payload },
+    feedbackOpen: (ui, action: PayloadAction<UserFeedback>) => ({
+      loading: false,
+      feedback: {
+        ...ui.feedback,
+        userFeedback: {
+          feedbackMessage: action.payload.feedbackMessage,
+          userFeedbackOpen: action.payload.userFeedbackOpen,
+        },
+      },
     }),
   },
 });

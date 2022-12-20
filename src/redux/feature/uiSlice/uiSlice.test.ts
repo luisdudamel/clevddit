@@ -10,7 +10,13 @@ describe("Given a uiReducer", () => {
       const expectedLoadingStatus = true;
       const mockLoading: ui = {
         loading: false,
-        feedback: { userFeedback: false, loaderFeedback: false },
+        feedback: {
+          loaderFeedback: true,
+          userFeedback: {
+            feedbackMessage: "",
+            userFeedbackOpen: true,
+          },
+        },
       };
 
       const loadingAction = loadingActionCreator(true);
@@ -27,13 +33,21 @@ describe("Given a uiReducer", () => {
       const expectedLoadingStatus = true;
       const mockLoading: ui = {
         loading: false,
-        feedback: { userFeedback: false, loaderFeedback: false },
+        feedback: {
+          loaderFeedback: false,
+          userFeedback: {
+            feedbackMessage: "",
+            userFeedbackOpen: true,
+          },
+        },
       };
 
-      const loadingAction = userFeedbackActionCreator(true);
+      const loadingAction = userFeedbackActionCreator(
+        mockLoading.feedback.userFeedback
+      );
       const loadingStatusTrue = uiSliceReducer(mockLoading, loadingAction);
 
-      expect(loadingStatusTrue.feedback.userFeedback).toBe(
+      expect(loadingStatusTrue.feedback.userFeedback.userFeedbackOpen).toBe(
         expectedLoadingStatus
       );
     });

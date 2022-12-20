@@ -43,9 +43,20 @@ export const deletePostThunk =
       if (deletePostResponse.ok) {
         dispatch(loadingActionCreator(false));
         dispatch(deletePostActionCreator(postId));
-        dispatch(userFeedbackActionCreator(true));
+        dispatch(
+          userFeedbackActionCreator({
+            feedbackMessage: "Post succesfully deleted",
+            userFeedbackOpen: true,
+          })
+        );
+
         await setTimeout(() => {
-          dispatch(userFeedbackActionCreator(false));
+          dispatch(
+            userFeedbackActionCreator({
+              feedbackMessage: "",
+              userFeedbackOpen: false,
+            })
+          );
         }, 1000);
       }
     } catch (error) {
