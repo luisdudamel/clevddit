@@ -146,3 +146,27 @@ export const mockLoggedAdmin: UserState = {
     bs: "",
   },
 };
+
+export const mockParzivalUser: IUser = {
+  id: 0,
+  name: "Wade Watts",
+  username: "Parzival",
+  email: "",
+  address: {
+    street: "",
+    suite: "",
+    city: "",
+    zipcode: "",
+    geo: {
+      lat: "",
+      lng: "",
+    },
+  },
+  phone: "",
+  website: "",
+  company: {
+    name: "",
+    catchPhrase: "",
+    bs: "",
+  },
+};

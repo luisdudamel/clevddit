@@ -4,14 +4,14 @@
 .user {
   width: 100%;
   max-width: 324px;
-  min-width: 200px;
+  min-width: 300px;
   min-height: 324px;
   background: map.get(colors.$layout, "post-background");
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   padding: 5px 25px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
 
@@ -23,7 +23,7 @@
 
   &__username {
     justify-self: center;
-    min-height: 70px;
+    min-height: 30px;
     font-size: 18px;
     line-height: 21px;
     color: map.get(colors.$text, "post-title");
@@ -42,8 +42,14 @@
     font-size: 15px;
     line-height: 18px;
     color: map.get(colors.$text, "post-body");
-    height: 90px;
     overflow: hidden;
+  }
+  &__company {
+    font-style: normal;
+    font-size: 20px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    color: map.get(colors.$text, "post-title");
   }
 
   &__action {

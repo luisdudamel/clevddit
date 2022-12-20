@@ -14,10 +14,13 @@ const User = ({ user }: PostProps): JSX.Element => {
   };
 
   return (
-    <div onClick={openUserDetail} className="post">
+    <div onClick={openUserDetail} className="user">
       <h2 className="user__username">{user.username}</h2>
       <h3 className="user__name">{user.name}</h3>
-      <p className="user__email">{user.email}</p>
+      <h4 className="user__email">{user.email}</h4>
+      <p className="user__website">{user.website}</p>
+      <p className="user__company">{user.company.name}</p>
+      <p className="user__phone">{user.phone}</p>
       <div className="actions-container">
         <button
           onClick={openUserDetail}
@@ -30,15 +33,6 @@ const User = ({ user }: PostProps): JSX.Element => {
             height={48}
             src="/img/icons/eye.svg"
             alt="Open user icon"
-          />
-        </button>
-        <button type="button" className="action-button">
-          <img
-            className="user__action"
-            width={48}
-            height={48}
-            src="/img/icons/delete.svg"
-            alt="Delete User"
           />
         </button>
       </div>
