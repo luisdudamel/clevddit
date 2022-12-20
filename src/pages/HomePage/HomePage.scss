@@ -17,12 +17,12 @@
     line-height: 39px;
     margin-top: 0px;
     padding-top: 10px;
-
     top: 47px;
     height: 60px;
     width: 100%;
     position: fixed;
+    padding-left: 40px;
+    left: 0;
     background: map.get(colors.$layout, "pages-background");
-    align-self: start;
   }
 }

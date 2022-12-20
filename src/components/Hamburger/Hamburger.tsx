@@ -17,9 +17,11 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.position = "fixed";
+      document.body.style.overflow = "hidden";
+      document.body.style.width = "100vw";
     } else {
-      document.body.style.position = "";
+      document.body.style.overflow = "";
+      document.body.style.width = "";
     }
   }, [isMenuOpen]);
 
