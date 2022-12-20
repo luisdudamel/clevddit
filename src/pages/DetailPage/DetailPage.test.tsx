@@ -6,7 +6,7 @@ import {
 } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store/store";
-import PostPage from "./PostPage";
+import PostPage from "./DetailPage";
 import userEvent from "@testing-library/user-event";
 
 let mockId = "12";

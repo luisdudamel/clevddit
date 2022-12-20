@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Loader from "../../components/Loader/Loader";
 import { IPost } from "../../interfaces/Post";
@@ -8,12 +8,14 @@ import {
   editPostThunk,
   getPostByIdThunk,
 } from "../../redux/thunks/postsThunks";
-import "./PostPage.scss";
+import "./DetailPage.scss";
 
-const PostPage = (): JSX.Element => {
+const DetailPage = (): JSX.Element => {
   const loading = useAppSelector((store) => store.ui.loading);
   const dispatch = useAppDispatch();
   const { postId } = useParams();
+  const currentPage = useLocation().pathname.search("/user/");
+
   const initialPostDetail: IPost = {
     body: "",
     id: 0,
@@ -73,18 +75,20 @@ const PostPage = (): JSX.Element => {
               </h2>
               <div className="post-page__body">
                 <p className="post-page__body__text">{actualPost.body}</p>
-                <button
-                  onClick={() => setIsEditMode(true)}
-                  className="post-page__body__button"
-                  type="button"
-                >
-                  <img
-                    width={40}
-                    height={40}
-                    src="/img/icons/edit.svg"
-                    alt="Edit Icon"
-                  />
-                </button>
+                {currentPage === 0 ? null : (
+                  <button
+                    onClick={() => setIsEditMode(true)}
+                    className="post-page__body__button"
+                    type="button"
+                  >
+                    <img
+                      width={40}
+                      height={40}
+                      src="/img/icons/edit.svg"
+                      alt="Edit Icon"
+                    />
+                  </button>
+                )}
               </div>{" "}
             </>
           )}
@@ -130,4 +134,4 @@ const PostPage = (): JSX.Element => {
   );
 };
 
-export default PostPage;
+export default DetailPage;

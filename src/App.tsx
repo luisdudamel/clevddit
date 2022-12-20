@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import { mockAdminCredentials } from "./mocks/mockCredentials";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
-import PostPage from "./pages/PostPage/PostPage";
+import DetailPage from "./pages/DetailPage/DetailPage";
 import { useAppDispatch } from "./redux/hooks";
 import { loginUserThunk } from "./redux/thunks/userThunk";
 import "./styles/sass/styles.scss";
@@ -71,7 +71,7 @@ const App = (): JSX.Element => {
             <CheckNotLogged>
               <>
                 <Header />
-                <PostPage />
+                <DetailPage />
               </>
             </CheckNotLogged>
           }
@@ -82,7 +82,7 @@ const App = (): JSX.Element => {
             <CheckNotLogged>
               <>
                 <Header />
-                <PostPage />
+                <DetailPage />
               </>
             </CheckNotLogged>
           }
