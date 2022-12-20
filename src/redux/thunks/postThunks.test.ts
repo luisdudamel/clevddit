@@ -1,5 +1,9 @@
 import { waitFor } from "@testing-library/react";
-import { mockPost } from "../../mocks/mockPosts";
+import {
+  mockConstructedPost,
+  mockPost,
+  mockRawPostMSW,
+} from "../../mocks/mockPosts";
 import {
   deletePostThunk,
   editPostThunk,
@@ -9,13 +13,18 @@ import {
 
 describe("Given the loadPostsThunk function", () => {
   describe("When it's called", () => {
-    test("Then it should call dispatch", async () => {
+    test("Then it should call dispatch with an array of posts", async () => {
       const dispatch = jest.fn();
+
+      const action = {
+        payload: mockConstructedPost,
+        type: "posts/loadPosts",
+      };
 
       const thunk = getAllPostsThunk();
       await thunk(dispatch);
 
-      expect(dispatch).toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(action);
     });
   });
 });
