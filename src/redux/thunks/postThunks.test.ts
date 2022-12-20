@@ -83,4 +83,27 @@ describe("Given the editPostThunk function", () => {
       expect(dispatch).toHaveBeenCalled();
     });
   });
+
+  describe("When it's called with a post with id 1", () => {
+    test("Then it should call dispatch with a feedbackOpen type with payload text ``", async () => {
+      const dispatch = jest.fn();
+
+      const editAction = {
+        payload: {
+          feedbackMessage: "",
+          userFeedbackOpen: false,
+        },
+        type: "ui/feedbackOpen",
+      };
+
+      const thunk = editPostThunk(mockPost);
+      await thunk(dispatch);
+      await waitFor(
+        () => {
+          expect(dispatch).toHaveBeenCalledWith(editAction);
+        },
+        { timeout: 2000 }
+      );
+    }, 5000);
+  });
 });

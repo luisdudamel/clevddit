@@ -49,7 +49,7 @@ export const deletePostThunk =
             userFeedbackOpen: true,
           })
         );
-        dispatch(loadPostsActionCreator(true));
+
         await setTimeout(() => {
           dispatch(
             userFeedbackActionCreator({

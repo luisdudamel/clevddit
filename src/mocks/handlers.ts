@@ -34,6 +34,27 @@ export const handlers = [
       })
     );
   }),
+  rest.patch(`${process.env.REACT_APP_API_URL}posts/1`, (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        address: {
+          city: "",
+          geo: { lat: "", lng: "" },
+          street: "",
+          suite: "",
+          zipcode: "",
+        },
+        company: { bs: "", catchPhrase: "", name: "" },
+        email: "",
+        id: 1,
+        name: "",
+        phone: "",
+        username: "SpaceFan",
+        website: "",
+      })
+    );
+  }),
   rest.delete(`${process.env.REACT_APP_API_URL}posts/1`, (req, res, ctx) => {
     return res(
       ctx.status(200),
