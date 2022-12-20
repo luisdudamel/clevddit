@@ -40,7 +40,7 @@ export const deletePostThunk =
         }
       );
 
-      if (deletePostResponse.ok) {
+      if (deletePostResponse.status === 200) {
         dispatch(loadingActionCreator(false));
         dispatch(deletePostActionCreator(postId));
         dispatch(
@@ -49,7 +49,7 @@ export const deletePostThunk =
             userFeedbackOpen: true,
           })
         );
-
+        dispatch(loadPostsActionCreator(true));
         await setTimeout(() => {
           dispatch(
             userFeedbackActionCreator({
