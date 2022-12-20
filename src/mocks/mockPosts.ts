@@ -62,6 +62,38 @@ export const mockTwoPostsOneDeleted: IPost[] = [
   },
 ];
 
+export const mockRawPostMSW: RawPost[] = [
+  {
+    userId: 1,
+    body: "Chat gpt is capable of doing code, wow",
+    id: 1,
+    title: "ChatGPT is killing it",
+  },
+];
+export const mockConstructedPost: IPost[] = [
+  {
+    user: {
+      address: {
+        city: "",
+        geo: { lat: "", lng: "" },
+        street: "",
+        suite: "",
+        zipcode: "",
+      },
+      company: { bs: "", catchPhrase: "", name: "" },
+      email: "",
+      id: 1,
+      name: "",
+      phone: "",
+      username: "SpaceFan",
+      website: "",
+    },
+    body: "Chat gpt is capable of doing code, wow",
+    id: 1,
+    title: "ChatGPT is killing it",
+  },
+];
+
 export const mockTwoRawPosts: RawPost[] = [
   {
     userId: 1,

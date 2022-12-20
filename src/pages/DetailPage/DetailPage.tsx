@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import Loader from "../../components/Loader/Loader";
+import Feedback from "../../components/Feedback/Feedback";
 import { IPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -100,7 +100,7 @@ const DetailPage = (): JSX.Element => {
   return (
     <>
       <main className="detail-page">
-        {loading && <Loader />}
+        {loading && <Feedback />}
         <div className="detail-container">
           {!isEditMode && (
             <>
