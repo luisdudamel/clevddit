@@ -4,7 +4,7 @@
 .user {
   width: 100%;
   max-width: 324px;
-  min-width: 300px;
+  min-width: 200px;
   min-height: 324px;
   background: map.get(colors.$layout, "post-background");
   border-radius: 15px;
@@ -14,6 +14,10 @@
   justify-content: space-evenly;
   transition: all ease-in-out 0.2s;
   cursor: pointer;
+
+  @media (min-width: 500px) {
+    min-width: 300px;
+  }
 
   &:hover {
     box-shadow: rgba(230, 43, 112, 0.4) 0px 5px,

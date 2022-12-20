@@ -81,6 +81,11 @@
     font-size: 25px;
     line-height: 23px;
 
+    @media (max-width: 500px) {
+      max-width: 300px;
+      overflow-wrap: break-word;
+    }
+
     &__text {
       margin-top: 0px;
     }
