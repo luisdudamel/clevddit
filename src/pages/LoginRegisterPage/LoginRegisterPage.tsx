@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import Loader from "../../components/Loader/Loader";
+import Feedback from "../../components/Feedback/Feedback";
 import LoginRegisterForm from "../../components/LoginRegisterForm/LoginRegisterForm";
 import { useAppSelector } from "../../redux/hooks";
 import "./LoginRegisterPage.scss";
@@ -11,7 +11,7 @@ const LoginRegisterPage = (): JSX.Element => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <Feedback userMessage="" />
       ) : (
         <main className="login-page">
           <h1 className="login-page__title">Welcome to clevddit!</h1>

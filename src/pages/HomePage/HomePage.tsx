@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Loader from "../../components/Loader/Loader";
+import Feedback from "../../components/Feedback/Feedback";
 import ItemsList from "../../components/ItemsList/ItemsList";
 import { IPost } from "../../interfaces/Post";
 import { IUser } from "../../interfaces/Users";
@@ -24,7 +24,7 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <main className="home-page">
-        {loading && <Loader />}
+        {loading && <Feedback userMessage="" />}
         <h1 className="home-page__title">{`${
           pathname === "/users" ? "Users" : "Posts"
         } `}</h1>
