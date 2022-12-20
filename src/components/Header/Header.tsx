@@ -16,14 +16,17 @@ const Header = (): JSX.Element => {
     navigate("/login");
   };
 
-  const goToTop = () => {
+  const goHome = () => {
     navigate("/home");
+    window.scrollTo(0, 0);
+  };
+  const goTop = () => {
     window.scrollTo(0, 0);
   };
 
   return (
     <header className="header__container">
-      <button onClick={goToTop} className="header__logo__button">
+      <button onClick={goHome} className="header__logo__button">
         <img
           className="header__logo"
           src="/img/cleverpy-logo.png"
@@ -33,6 +36,7 @@ const Header = (): JSX.Element => {
 
       <div className="navlink-container">
         <NavLink
+          onClick={goTop}
           className={({ isActive }) =>
             isActive ? "navlink--active" : "navlink"
           }
@@ -41,6 +45,7 @@ const Header = (): JSX.Element => {
           Posts
         </NavLink>
         <NavLink
+          onClick={goTop}
           className={({ isActive }) =>
             isActive ? "navlink--active" : "navlink"
           }
