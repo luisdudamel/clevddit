@@ -63,12 +63,44 @@ Also you have a complete user list, with their full details.
 
 ## [Live website](https://clevddit.vercel.app/) 🔗
 
+### Credentials
+
+    - Username: admin
+    - Password: admin
+
   <br/>
   </div>
 
 ## Project info📚
 
-**Technologies used:**
+### Key Features:
+
+- App state managed via Redux Toolkit.
+- Slices and Thunks prepared for a full API Rest integration for error handling.
+- Reading, editing and deleting posts ready, with full external request implementation.
+- Login data stored on localstorage. Prepared for external auth implementation.
+- Full SPA behaviour, react-router-dom integrated. Every route is protected, so the user can be redirected to login or home page based on logged status.
+- Code minified build.
+- Logout button, clears localstorage, logs out user and redirects to login.
+- RWD ready. Navigation through navbar on desktop, hamburger menu on mobile.
+- Flexbox as the main layout strategy. Grid layout for lists.
+- SCSS Color custom variables.
+- No third party libraries for styling or layout implementation.
+- 0 bugs, 0 code smells, 0 technical debts.
+- All external request tests, covered by mocking API responses with MSW.
+- 90% testing coverage, via unit testing, component testing, integration testing, snapshot testing and E2E testing.
+
+  </br>
+
+  <div align="center">
+
+  <img style="height:400px" src="https://s9.gifyu.com/images/cypress.gif" />
+
+  </div>
+
+  </br>
+
+**Core Technologies used:**
 
 ```
   - Typescript
@@ -79,6 +111,11 @@ Also you have a complete user list, with their full details.
   - React router dom
   - MSW
 ```
+
+### Assets
+
+- Environment variable: `https://jsonplaceholder.typicode.com/`
+- Postman ready useful endpoints collection (.json file) [here](Clevddit.postman_collection.json) 🔗
 
 **Components**
 
