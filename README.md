@@ -1,99 +1,186 @@
-Front end developer technical skills assessment.
+# Clevddit, a posts platform.🔖
 
-# Responsibilities list
+## Technical skills assessment for Cleverpy.
 
-## Data
+Clevddit is a platform for managing posts from users. You can list all posts, see one post detail, delete a post and a edit a post.
+Also you have a complete user list, with their full details.
 
-- Posts
-- User
-- UI
+---
 
-### Modifications:
+  <div align="center">
+  <br/>
 
-- Posts:.
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
 
-  - Delete one post
-  - Edit one post.
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=coverage)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=bugs)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=luisdudamel_clevddit&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=luisdudamel_clevddit)
 
-- Users:
+---
 
-  - Logged in.
-  - Logged out.
+  <br/>
 
-- UI:
-  - On.
-  - Off.
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
-## Components
+  </div>
 
-### Button:
+  <div align="center">
 
-- Render a buttton with the received text.
-- Call the received function.
+---
 
-### Loader:
+## Usage
 
-- Render three dots depending on the UI state.
+  </div>
+  <div align="center">
 
-### User form:
+  <img style="height:500px" src="https://s3.gifyu.com/images/clevddit-desk.gif" />
+  <br/>
+  <img style="height:300px" src="https://s3.gifyu.com/images/clevddit-mob.gif" />
 
-- Render a form, with the received text.
-- Render a button component, giving it's text and function depending on the page.
-- Call the submit function for the form.
+  </div>
 
-### Post form:
+---
 
-- Render a form, with the received text.
-- Render a button with passing it's text.
-- Call the submit function for the form.
+  <br/>
 
-### Post:
+  <div align="center">
+  <br/>
 
-- Render a heading and a received text.
-- Render two images, giving them a function.
-- Call the received functions.
+## [Live website](https://clevddit.vercel.app/) 🔗
 
-### Post List:
+### Credentials
 
-- Render as many post components as received, passing a heading.
-- Pass designated function to Post component depending on the obtained state.
+    - Username: admin
+    - Password: admin
 
-### Header:
+  <br/>
+  </div>
 
-- Render an image for the logo.
-- Render a hamburger menu, giving it it's text and function to call.
-- Render a higlighted text depending on the page.
-- Call the received function for navigation.
+## Project info📚
 
-### Hamburger Menu:
+### Key Features:
 
-- Render a received text.
-- Render a 3 div elements.
-- Render a text with "Log out" and an image.
-- Call the received functions for the received text on click action.
+- App state managed via Redux Toolkit.
+- Slices and Thunks prepared for a full API Rest integration for error handling.
+- Reading, editing and deleting posts ready, with full external request implementation.
+- Login data stored on localstorage. Prepared for external auth implementation.
+- Full SPA behaviour, react-router-dom integrated. Every route is protected, so the user can be redirected to login or home page based on logged status.
+- Code minified build.
+- CI/CD integrated pipeline. Github workflows for automatic testing and lint-checking on PR.
+- Logout button, clears localstorage, logs out user and redirects to login.
+- RWD ready. Navigation through navbar on desktop, hamburger menu on mobile.
+- Flexbox as the main layout strategy. Grid layout for lists.
+- SCSS Color custom variables.
+- No third party libraries for styling or layout implementation.
+- <b>Figma custom made design [here](https://www.figma.com/file/0ya2csuAiQOMKrvTUc4kWf/Clevddit?node-id=2%3A757&t=LDJxqnAaL7FMLHbu-1)</b>
+- 0 bugs, 0 code smells, 0 technical debts.
+- All external request tests, covered by mocking API responses with MSW.
+- 90% testing coverage, via unit testing, component testing, integration testing, snapshot testing and E2E testing.
 
-### Modal:
+  </br>
 
-- Render a text received.
+  <div align="center">
 
-### Home Page:
+  <img style="height:400px" src="https://s9.gifyu.com/images/cypress.gif" />
 
-- Render a Post list component.
+  </div>
 
-### Post Detail Page:
+  </br>
 
-- Render a Post component giving it it's text and functions.
+**Core Technologies used:**
 
-### Post edit page:
+```
+  - Typescript
+  - React
+  - SASS
+  - Cypress
+  - Jest
+  - React router dom
+  - MSW
+```
 
-- Render a post form component giving it it's text.
+### Assets
 
-### Login / Register page:
+- Environment variable: `https://jsonplaceholder.typicode.com/`
+- Postman ready useful endpoints collection (.json file) [here](Clevddit.postman_collection.json) 🔗
 
-- Render a login or register form depending on the page, giving it it's text.
+**Components**
 
-## App:
+Components responsibilities available [here](components.md) 🔗
 
-- Render a header component.
-- Render a home page, detail page, edit page or register / login page, depending the actual route.
-- Call the initial load function.
+```
+    .
+    └── components(/)
+      └── Button
+      └── CheckLogged
+      └── CheckNotLogged
+      └── Feedback
+      └── Hamburger
+      └── Header
+      └── ItemsList
+      └── LoginRegisterForm
+      └── Post
+      └── User
+
+```
+
+  <br/>
+  <br/>
+
+---
+
+  <br/>
+  <br/>
+
+## Commands
+
+```shell
+    # Installation command
+    npm i or npm/yarn i
+
+    # Running command
+    npm start
+
+    # Build command
+    npm run build
+
+```
+
+```shell
+    # Testing command
+    npm run test
+
+    # Testing watch command
+    npm run test:watch
+
+    # Testing coverage command
+    npm run test:coverage
+
+    # End To End testing command
+    npm run cypress:open
+```
+
+  <br/>
+
+---
+
+  <br/>
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)

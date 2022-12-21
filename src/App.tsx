@@ -28,7 +28,7 @@ const App = (): JSX.Element => {
           }
         />
         <Route
-          path="login"
+          path="/login"
           element={
             <CheckLogged>
               <LoginRegisterPage />
@@ -36,7 +36,7 @@ const App = (): JSX.Element => {
           }
         ></Route>
         <Route
-          path="register"
+          path="/register"
           element={
             <CheckLogged>
               <LoginRegisterPage />
