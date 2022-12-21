@@ -16,7 +16,7 @@ const Hamburger = ({ currentUser, logout }: HamburgerProps): JSX.Element => {
   };
   const closeMenu = () => {
     setIsMenuOpen(false);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
