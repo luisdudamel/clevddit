@@ -81,11 +81,13 @@ Also you have a complete user list, with their full details.
 - Login data stored on localstorage. Prepared for external auth implementation.
 - Full SPA behaviour, react-router-dom integrated. Every route is protected, so the user can be redirected to login or home page based on logged status.
 - Code minified build.
+- CI/CD integrated pipeline. Github workflows for automatic testing and lint-checking on PR.
 - Logout button, clears localstorage, logs out user and redirects to login.
 - RWD ready. Navigation through navbar on desktop, hamburger menu on mobile.
 - Flexbox as the main layout strategy. Grid layout for lists.
 - SCSS Color custom variables.
 - No third party libraries for styling or layout implementation.
+- <b>Figma custom made design [here](https://www.figma.com/file/0ya2csuAiQOMKrvTUc4kWf/Clevddit?node-id=2%3A757&t=LDJxqnAaL7FMLHbu-1)</b>
 - 0 bugs, 0 code smells, 0 technical debts.
 - All external request tests, covered by mocking API responses with MSW.
 - 90% testing coverage, via unit testing, component testing, integration testing, snapshot testing and E2E testing.
