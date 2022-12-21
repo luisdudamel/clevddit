@@ -13,6 +13,8 @@ const CheckLogged = ({ children }: CheckLoggedProps): JSX.Element => {
   useEffect(() => {
     if (logged) {
       return navigate("/home");
+    } else {
+      return navigate("/login");
     }
   }, [logged, navigate]);
 
